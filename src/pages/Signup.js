@@ -81,7 +81,8 @@ export default ({
   tosUrl = "#",
   privacyPolicyUrl = "#",
   signInUrl =`/components/innerPages/LoginPage`,
-  newEdit = () => {
+  newEdit
+   = () => {
     history.push(signInUrl);
   },
 }) => (
@@ -108,7 +109,6 @@ export default ({
               <DividerTextContainer>
                 <DividerText>Or Sign up with your e-mail</DividerText>
               </DividerTextContainer>
-              <Form>
                 <Input1 type="email" placeholder="Email" />
                 <Input1 type="Name" placeholder="Name" />
                 <DIV>
@@ -116,9 +116,9 @@ export default ({
                 <Input2 type="mon" placeholder="Month"  />
                 <Input2 type="day" placeholder="Day" />
                   </DIV>
-                <SubmitButton type="submit" οnClick={newEdit}>
+                <SubmitButton onClick={newEdit}>
                   <SubmitButtonIcon className="icon" />
-                  <span className="text">{submitButtonText}</span>
+                  <span className="text">Sign Up</span>
                 </SubmitButton>
                 <p tw="mt-6 text-xs text-gray-600 text-center">
                   I agree to abide by Mintal's{" "}
@@ -137,7 +137,7 @@ export default ({
                     Sign In
                   </a>
                 </p>
-              </Form>
+             
             </FormContainer>
           </MainContent>
         </MainContainer>
