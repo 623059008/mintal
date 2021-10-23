@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import { Container as ContainerBase } from "components/misc/Layouts";
 import tw from "twin.macro";
@@ -18,7 +18,6 @@ const LogoImage = tw.img`h-12 mx-auto`;
 const MainContent = tw.div`mt-12 flex flex-col items-center`;
 const Heading = tw.h1`text-2xl xl:text-3xl font-extrabold`;
 const FormContainer = tw.div`w-full flex-1 mt-8`;
-
 const SocialButtonsContainer = tw.div`flex flex-col items-center`;
 const SocialButton = styled.a`
   ${tw`w-full max-w-xs font-semibold rounded-lg py-3 border text-gray-900 bg-gray-100 hocus:bg-gray-200 hocus:border-gray-400 flex items-center justify-center transition-all duration-300 focus:outline-none focus:shadow-outline text-sm mt-5 first:mt-0`}
@@ -55,6 +54,7 @@ const IllustrationImage = styled.div`
 `;
 
 export default ({
+  vis,
   logoLinkUrl = "#",
   illustrationImageSrc = illustration,
   headingText = "Sign In To Mintal",
@@ -71,15 +71,30 @@ export default ({
     }
   ],
   history = useHistory(),
+  
   submitButtonText = "Sign In",
   SubmitButtonIcon = LoginIcon,
   forgotPasswordUrl = "#",
   signupUrl = `/components/innerPages/SignupPage`,
-  goquiz = () => {
-    history.push(`/components/test/testquestion`);
+  goquiz=()=>{
+    vis=1;
   }
 
-}) => (
+}) => {
+const [nameValue,setNameValue]=useState(false);
+const [emailValue,setEmailValue]=useState(false);
+const [yearValue,setYearValue]=useState(false);
+const [monthValue,setMonthValue]=useState(false);
+const [date,setDateValue]=useState(false);
+const submit=()=>{
+  console.log(nameValue,emailValue,yearValue,monthValue,date);
+  let list=[];
+  list.push(nameValue,emailValue,yearValue,monthValue,date);
+  history.push(`/components/blocks/Pricing/TwoPlansWithDurationSwitcher`);
+};
+
+
+return(
   <AnimationRevealPage>
     <Container>
       <Content>
@@ -103,19 +118,20 @@ export default ({
               <DividerTextContainer>
                 <DividerText>Or Sign in with your e-mail</DividerText>
               </DividerTextContainer>
-              <Form>
-              <Input1 type="email" placeholder="Email" />
-                <Input1 type="Name" placeholder="Name" />
+              
+              <Input1 type="email" placeholder="Email" onChange={e=>setEmailValue(e.target.value)}/>
+                <Input1 type="Name" placeholder="Name" onChange={e=>setNameValue(e.target.value)}/>
                 <DIV>
-                <Input2 type="year" placeholder="Year"   />
-                <Input2 type="mon" placeholder="Month"  />
-                <Input2 type="day" placeholder="Day" />
+                <Input2 type="year" placeholder="Year"  onChange={e=>setYearValue(e.target.value)} />
+                <Input2 type="mon" placeholder="Month"  onChange={e=>setMonthValue(e.target.value)}/>
+                <Input2 type="day" placeholder="Day" onChange={e=>setDateValue(e.target.value)}/>
                   </DIV>
-                <SubmitButton type="submit" οnclick={goquiz}>
+                  <SubmitButton onClick={submit}>
+               
                   <SubmitButtonIcon className="icon" />
                   <span className="text">{submitButtonText}</span>
                 </SubmitButton>
-              </Form>
+              
               <p tw="mt-6 text-xs text-gray-600 text-center">
                 <a href={forgotPasswordUrl} tw="border-b border-gray-500 border-dotted">
                   Forgot Password ?
@@ -136,4 +152,5 @@ export default ({
       </Content>
     </Container>
   </AnimationRevealPage>
-);
+)
+};

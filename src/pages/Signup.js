@@ -1,3 +1,4 @@
+
 import React from "react";
 import DatePicker from 'react-date-picker';
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
@@ -81,8 +82,7 @@ export default ({
   tosUrl = "#",
   privacyPolicyUrl = "#",
   signInUrl =`/components/innerPages/LoginPage`,
-  newEdit
-   = () => {
+  newEdit= () => {
     history.push(signInUrl);
   },
 }) => (
