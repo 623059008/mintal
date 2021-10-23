@@ -17,7 +17,7 @@ const StyledHeader = styled(Header)`
 `;
 const Container = styled.div`
   ${tw`relative -mx-8 -mt-8 bg-center bg-cover`}
-  background-image: url("https://images.unsplash.com/photo-1522071901873-411886a10004?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80");
+  background-image: url("https://images.unsplash.com/photo-1573497491208-6b1acb260507?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80");
 `;
 
 const OpacityOverlay = tw.div`z-10 absolute inset-0 bg-primary-500 opacity-25`;
@@ -95,7 +95,7 @@ export default () => {
           </LeftColumn>
           <RightColumn>
             <StyledResponsiveVideoEmbed
-              url="//player.vimeo.com/video/374265101?title=0&portrait=0&byline=0&autoplay=0&responsive=1"
+              url="https://player.vimeo.com/video/336300875?title=0&portrait=0&byline=0&autoplay=1&loop=1&transparent=1"
               background="transparent"
             />
           </RightColumn>
