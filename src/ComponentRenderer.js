@@ -526,7 +526,7 @@ export const shortUrl = {
     scrollAnimationDisabled: true,
     url: `/LoginPage`,
   },
-  signup: {
+  registry: {
     component: SignupPage,
     url: `/SignupPage`,
     imageSrc: SignupPageImageSrc,

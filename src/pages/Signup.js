@@ -59,7 +59,7 @@ const IllustrationImage = styled.div`
 export default ({
   logoLinkUrl = "#",
   illustrationImageSrc = illustration,
-  headingText = "Sign Up For Mintal",
+  headingText = "Registry For Mintal",
   socialButtons = [
     {
       iconImageSrc: googleIconImageSrc,
@@ -73,7 +73,7 @@ export default ({
     }
   ],
   history = useHistory(),
-  submitButtonText = "Sign Up",
+  submitButtonText = "Registry",
   SubmitButtonIcon = SignUpIcon,
   innerPages = components.innerPages,
   tosUrl = "#",
@@ -118,7 +118,21 @@ export default ({
           <MainContent>
             <Heading>{headingText}</Heading>
             <FormContainer>
-              <SocialButtonsContainer>
+              <Input1 type="email" placeholder="Email" onChange={e=>setEmailValue(e.target.value)}/>
+                <Input1 type="Name" placeholder="Name" onChange={e=>setNameValue(e.target.value)}/>
+                <DIV>
+                <Input2 type="year" placeholder="Year"  onChange={e=>setYearValue(e.target.value)} />
+                <Input2 type="mon" style={{marginLeft: '1em', width: '20%'}} placeholder="Month"  onChange={e=>setMonthValue(e.target.value)}/>
+                <Input2 type="day" style={{marginLeft: '1em', width: '20%'}} placeholder="Day" onChange={e=>setDateValue(e.target.value)}/>
+                  </DIV>
+                <SubmitButton onClick={submit}>
+                  <SubmitButtonIcon className="icon" />
+                  <span className="text">Registry</span>
+                </SubmitButton>
+              <DividerTextContainer>
+                <DividerText> <br />Or registry with third part</DividerText>
+              </DividerTextContainer>
+             <SocialButtonsContainer>
                 {socialButtons.map((socialButton, index) => (
                   <SocialButton key={index} href={socialButton.url}>
                     <span className="iconContainer">
@@ -128,21 +142,7 @@ export default ({
                   </SocialButton>
                 ))}
               </SocialButtonsContainer>
-              <DividerTextContainer>
-                <DividerText>Or Sign up with your e-mail</DividerText>
-              </DividerTextContainer>
-              <Input1 type="email" placeholder="Email" onChange={e=>setEmailValue(e.target.value)}/>
-                <Input1 type="Name" placeholder="Name" onChange={e=>setNameValue(e.target.value)}/>
-                <DIV>
-                <Input2 type="year" placeholder="Year"  onChange={e=>setYearValue(e.target.value)} />
-                <Input2 type="mon" placeholder="Month"  onChange={e=>setMonthValue(e.target.value)}/>
-                <Input2 type="day" placeholder="Day" onChange={e=>setDateValue(e.target.value)}/>
-                  </DIV>
-                <SubmitButton onClick={submit}>
-                  <SubmitButtonIcon className="icon" />
-                  <span className="text">Sign Up</span>
-                </SubmitButton>
-                <p tw="mt-6 text-xs text-gray-600 text-center">
+              <p tw="mt-6 text-xs text-gray-600 text-center">
                   I agree to abide by Mintal's{" "}
                   <a href={tosUrl} tw="border-b border-gray-500 border-dotted">
                     Terms of Service
@@ -155,11 +155,10 @@ export default ({
 
                 <p tw="mt-8 text-sm text-gray-600 text-center">
                   Already have an account?{" "}
-                  <a href={`/LoginPage`} tw="border-b border-gray-500 border-dotted">
+                  <a href={`/sigin`} tw="border-b border-gray-500 border-dotted">
                     Sign In
                   </a>
                 </p>
-             
             </FormContainer>
           </MainContent>
         </MainContainer>
