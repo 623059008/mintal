@@ -43,7 +43,7 @@ const CardImage = styled.div(props => [
 
 const TextInfo = tw.div`py-6 sm:px-10 sm:py-6`;
 const TitleReviewContainer = tw.div`flex flex-col sm:flex-row sm:justify-between sm:items-center`;
-const Title = tw.h5`text-2xl font-bold`;
+const Title = tw.h5`text-3xl font-bold`;
 
 const RatingsInfo = styled.div`
   ${tw`flex items-center sm:ml-4 mt-2 sm:mt-0`}
@@ -92,33 +92,33 @@ export default () => {
   /* Change this according to your needs */
   const cards = [
     {
-      imageSrc: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&h=1024&w=768&q=80",
-      title: "Wyatt Residency",
-      description: "Lorem ipsum dolor sit amet, consectur dolori adipiscing elit, sed do eiusmod tempor nova incididunt ut labore et dolore magna aliqua.",
-      locationText: "Rome, Italy",
+      imageSrc: "http://qimg.hxnews.com/2020/0109/1578545100178.jpg",
+      title: "Thomas",
+      description: "Good at emotion control, guide you out the bad mood",
+      locationText: "Pittsburgh, PA",
       pricingText: "USD 39/Day",
       rating: "4.8",
     },
     {
-      imageSrc: "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&h=1024&w=768&q=80",
+      imageSrc: "https://thumbs.dreamstime.com/z/hispanic-doctor-smiling-23997913.jpg",
       title: "Soho Paradise",
-      description: "Lorem ipsum dolor sit amet, consectur dolori adipiscing elit, sed do eiusmod tempor nova incididunt ut labore et dolore magna aliqua.",
-      locationText: "Ibiza, Spain",
+      description: "Good friend with you, figure out your depression source",
+      locationText: "Pittsburgh, PA",
       pricingText: "USD 50/Day",
       rating: 4.9,
     },
     {
-      imageSrc: "https://images.unsplash.com/photo-1549294413-26f195200c16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&h=1024&w=768&q=80",
+      imageSrc: "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F35%2F2020%2F08%2F27%2Fwide-black-female-doctor-2000.jpg&w=1100&h=583&c=sc&poi=face&q=85",
       title: "Hotel Baja",
-      description: "Lorem ipsum dolor sit amet, consectur dolori adipiscing elit, sed do eiusmod tempor nova incididunt ut labore et dolore magna aliqua.",
+      description: "Be happiness with you and help you out of dpepression.",
       locationText: "Palo Alto, CA",
       pricingText: "USD 19/Day",
       rating: "5.0",
     },
     {
-      imageSrc: "https://images.unsplash.com/photo-1571770095004-6b61b1cf308a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&h=1024&w=768&q=80",
-      title: "Hudak Homes",
-      description: "Lorem ipsum dolor sit amet, consectur dolori adipiscing elit, sed do eiusmod tempor nova incididunt ut labore et dolore magna aliqua.",
+      imageSrc: "https://pic3.zhimg.com/80/v2-8bccc862a9a4fe03077c1926f80a9503_720w.jpg?source=1940ef5c",
+      title: "Dajun Piao",
+      description: "Very intelligent with an excellent bedside manner. Called me personally to give me routine lab results that were perfectly normal. She’s a good, solid doctor. Highly recommended.",
       locationText: "Arizona, RAK",
       pricingText: "USD 99/Day",
       rating: 4.5,
@@ -137,7 +137,7 @@ export default () => {
         </HeadingWithControl>
         <CardSlider ref={setSliderRef} {...sliderSettings}>
           {cards.map((card, index) => (
-            <Card key={index}>
+            <Card key={index} >
               <CardImage imageSrc={card.imageSrc} />
               <TextInfo>
                 <TitleReviewContainer>
