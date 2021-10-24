@@ -10,9 +10,11 @@ import Testimonial from "components/testimonials/TwoColumnWithImageAndProfilePic
 import FAQ from "components/faqs/SimpleWithSideImage.js";
 import SubscribeNewsLetterForm from "components/forms/SimpleSubscribeNewsletter.js";
 import Footer from "components/footers/MiniCenteredFooter.js";
+import Header from "components/headers/light.js";
 import { useHistory } from 'react-router-dom';
 export default () => (
   <AnimationRevealPage>
+    <Header collapseBreakpointClass="sm"/>
     <Hero />
     <Features />
     <SliderCard />
