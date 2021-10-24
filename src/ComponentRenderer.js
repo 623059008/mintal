@@ -514,6 +514,11 @@ export const components = {
 }
 
 export const shortUrl = {
+  home: {
+    component: AgencyLandingPage,
+    imageSrc: AgencyLandingPageImageSrc,
+    url: "/components/landingPages/AgencyLandingPage",
+  },
   login: {
     component: LoginPage,
     imageSrc: LoginPageImageSrc,
