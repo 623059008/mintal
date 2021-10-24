@@ -23,6 +23,7 @@ const SurveyComponent = () => {
   const history = useHistory();
   const [survey, setSurvey] = useState(null);
   const [quizData, setQuizData] = useState([]);
+  const [score, setScore] = useState(0);
   useEffect(() => {
     const fetchQuiz = async () => {
       const uid = getCookie('userid');
@@ -80,13 +81,7 @@ const SurveyComponent = () => {
       setSurvey(window.survey);
       window.survey.onComplete.add(function(sender) {
         console.log('quiz data: ', sender.data);
-        const answerList =  [
-          "Privacy",
-          "Confidentiality",
-          "Integrity",
-          "Availability",
-          "Authenticity"
-        ];
+        const answerList =  JSON.parse(data[0]["choices"]);
         const answer = sender.data || [];
         const scoreList = []
         for(let ans in answer) {
@@ -96,7 +91,6 @@ const SurveyComponent = () => {
             }
           });
         }
-        console.log(scoreList);
         let sendRecord = async (score) => {
           const uid = getCookie('userid');
           if(!uid) {
@@ -107,9 +101,10 @@ const SurveyComponent = () => {
             history.push('/error');
             return;
           }
-          history.push(`/result?score=${score}`);
+          // history.push(`/result?score=${score}`);
+          setScore(score);
         }
-        const sum = scoreList.reduce((next, prev)=> next+prev);
+        const sum = scoreList && scoreList.reduce((next, prev)=> next+prev) || 0;
         sendRecord(sum);
       }); 
     })
