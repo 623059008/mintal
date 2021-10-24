@@ -57,34 +57,34 @@ const CardMetaFeature = styled.div`
 const CardAction = tw(PrimaryButtonBase)`w-full mt-6`;
 
 export default ({
-  subheading = "Our Portfolio",
+  subheading = "Learning",
   headingHtmlComponent = (
     <>
-      We've done some <span tw="text-primary-500">amazing projects.</span>
+      Professionalism refined by <span tw="text-primary-500">communication.</span>
     </>
   ),
-  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam.",
+  description = "We stay strong connections with more than twenty psychiatric consulting companies and hospitals in the world. The weekly meetings and monthly reviews keep both our colleagues and us up to date with the latest psychiatric researches in order to support everyone who needs us.",
   linkText = "View all Projects",
-  cardLinkText = "Read Case Study",
+  cardLinkText = "Learn More",
   textOnLeft = false
 }) => {
   const cards = [
     {
       imageSrc:
         "https://images.unsplash.com/photo-1563461660947-507ef49e9c47?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80",
-      company: "Tesla Inc.",
-      type: "Ad Campaign",
-      title: "Personalized Ad Campaign using Google AdWords",
-      durationText: "90 Days Campaign",
+      company: "A&C Consulting Inc.",
+      type: "Research seminar",
+      title: "Consultation with minority group",
+      durationText: "2021-01-02 - 2021-01-04",
       locationText: "New York"
     },
     {
       imageSrc:
         "https://images.unsplash.com/photo-1573165231977-3f0e27806045?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80",
-      company: "Nestle",
-      type: "SEO Marketing",
-      title: "Ranking #1 for keywords like Chocolate, Snack",
-      durationText: "180 Day Campaign",
+      company: "St. Patric Hospital",
+      type: "Case Study",
+      title: "Privacy protection during consultation",
+      durationText: "2021-05-25 - 2021-05-26",
       locationText: "Palo Alto"
     }
   ];
@@ -117,7 +117,7 @@ export default ({
                       <TimeIcon /> {card.durationText}
                     </CardMetaFeature>
                     <CardMetaFeature>
-                      <LocationIcon /> {card.locationText}
+                      {/* <LocationIcon /> {card.locationText} */}
                     </CardMetaFeature>
                   </CardMeta>
                   <CardAction>{cardLinkText}</CardAction>

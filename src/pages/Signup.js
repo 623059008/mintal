@@ -79,32 +79,33 @@ export default ({
   tosUrl = "#",
   privacyPolicyUrl = "#",
   signInUrl =`/components/innerPages/LoginPage`,
-}) => {
+}) => 
+{
   const [nameValue,setNameValue]=useState(false);
-const [emailValue,setEmailValue]=useState(false);
-const [yearValue,setYearValue]=useState(false);
-const [monthValue,setMonthValue]=useState(false);
-const [date,setDateValue]=useState(false);
-const submit= async ()=>{
-  let birthday=yearValue+monthValue+date;
-  // let json=`{"username":${nameValue}}`;
-  let json = {realname:nameValue,email:emailValue,birthday};
-  // const dataSend=JSON.parse(username:nameValue);
-  console.log(json);
-  const res = JSON.parse(await sendRequest('signup', json));
-  console.log('json: ',res);
-  if(!res.success) {
-    alert('Fail to sign Up!');
-    return;
-  }
-  const { inserId } = res;
-  setCookie('userid', inserId);
+  const [emailValue,setEmailValue]=useState(false);
+  const [yearValue,setYearValue]=useState(false);
+  const [monthValue,setMonthValue]=useState(false);
+  const [date,setDateValue]=useState(false);
+  const submit= async ()=>{
+    let birthday=yearValue+monthValue+date;
+    // let json=`{"username":${nameValue}}`;
+    let json = {realname:nameValue,email:emailValue,birthday};
+    // const dataSend=JSON.parse(username:nameValue);
+    console.log(json);
+    const res = JSON.parse(await sendRequest('signup', json));
+    console.log('json: ',res);
+    if(!res.success) {
+      alert('Fail to sign Up!');
+      return;
+    }
+    const { inserId } = res;
+    setCookie('userid', inserId);
 
-  setTimeout(()=>{
-    history.push(`/components/blocks/Pricing/TwoPlansWithDurationSwitcher`);
-  }, 500);
-  // history.push(`/components/blocks/Pricing/TwoPlansWithDurationSwitcher`);
-};
+    setTimeout(()=>{
+      history.push(`/components/blocks/Pricing/TwoPlansWithDurationSwitcher`);
+    }, 500);
+    // history.push(`/components/blocks/Pricing/TwoPlansWithDurationSwitcher`);
+  };
 
   return(
   <AnimationRevealPage>
@@ -154,7 +155,7 @@ const submit= async ()=>{
 
                 <p tw="mt-8 text-sm text-gray-600 text-center">
                   Already have an account?{" "}
-                  <a href={`/components/innerPages/LoginPage`} tw="border-b border-gray-500 border-dotted">
+                  <a href={`/LoginPage`} tw="border-b border-gray-500 border-dotted">
                     Sign In
                   </a>
                 </p>
