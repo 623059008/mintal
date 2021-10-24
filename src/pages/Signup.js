@@ -4,7 +4,7 @@ import { Container as ContainerBase } from "components/misc/Layouts";
 import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
-import illustration from "images/signup-illustration.svg";
+import illustration from "images/sign-up1.jpeg";
 import logo from "images/mint.png";
 import { Link, useHistory } from 'react-router-dom';
 import googleIconImageSrc from "images/google-icon.png";
@@ -53,7 +53,7 @@ const SubmitButton = styled.button`
 const IllustrationContainer = tw.div`sm:rounded-r-lg flex-1 bg-purple-100 text-center hidden lg:flex justify-center`;
 const IllustrationImage = styled.div`
   ${props => `background-image: url("${props.imageSrc}");`}
-  ${tw`m-12 xl:m-16 w-full max-w-lg bg-contain bg-center bg-no-repeat`}
+  ${tw`m-12 xl:m-16 w-full max-w-xl bg-contain bg-center bg-no-repeat`}
 `;
 
 export default ({
