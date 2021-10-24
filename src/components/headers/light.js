@@ -1,11 +1,12 @@
-import React from "react";
+import React, {useState, useEffect}  from "react";
 import { motion } from "framer-motion";
 import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 
+import { useHistory } from 'react-router-dom';
 import useAnimatedNavToggler from "../../helpers/useAnimatedNavToggler.js";
-
+import { sendRequest, getCookie } from "../../util";
 import logo from "../../images/mint.png";
 import { ReactComponent as MenuIcon } from "feather-icons/dist/icons/menu.svg";
 import { ReactComponent as CloseIcon } from "feather-icons/dist/icons/x.svg";
@@ -70,18 +71,19 @@ export default ({ roundedHeaderButton = false, logoLink, links, className, colla
    * changing the defaultLinks variable below below.
    * If you manipulate links here, all the styling on the links is already done for you. If you pass links yourself though, you are responsible for styling the links or use the helper styled components that are defined here (NavLink)
    */
-  const defaultLinks = [
-    <NavLinks key={1}>
-      <NavLink href="/#">About</NavLink>
-      <NavLink href="/#">Blog</NavLink>
-      <NavLink href="/#">Pricing</NavLink>
-      <NavLink href="/#">Contact Us</NavLink>
-      <NavLink href="/#" tw="lg:ml-12!">
-        Login
-      </NavLink>
-      <PrimaryLink css={roundedHeaderButton && tw`rounded-full`}href="/#">Sign Up</PrimaryLink>
-    </NavLinks>
-  ];
+  const [realname, setRealname] = useState('');
+  const [uid, setUid] = useState(null);
+  const [defaultLinks, setDefaultLinks] = useState([
+          <NavLinks key={1}>
+            <NavLink href="/">Home</NavLink>
+            <NavLink href="/privacy">Privacy</NavLink>
+            <NavLink href="/donate">Donate</NavLink>
+            <NavLink href="/contact">Contact Us</NavLink>
+            <NavLink href="/sigin" tw="lg:ml-12!">Login</NavLink>
+            <PrimaryLink css={roundedHeaderButton && tw`rounded-full`} href="/registry">Registry</PrimaryLink>
+          </NavLinks>
+        ]);
+  const history = useHistory();
 
   const { showNavLinks, animation, toggleNavbar } = useAnimatedNavToggler();
   const collapseBreakpointCss = collapseBreakPointCssMap[collapseBreakpointClass];
@@ -92,6 +94,36 @@ export default ({ roundedHeaderButton = false, logoLink, links, className, colla
       Mintal
     </LogoLink>
   );
+
+  useEffect(() => {
+    const fetchAdmin = async () => {
+      const uid = getCookie('userid');
+      if(!uid) {
+        history.push('/signin');
+        return;
+      }
+      const res = JSON.parse(await sendRequest('admin', { uid: uid }));
+      if(!res.success) {
+        history.push('/error');
+        return;
+      }
+      const {realname} = res;
+      setRealname(realname);
+      setUid(uid);
+      if (realname) {
+        setDefaultLinks([
+          <NavLinks key={1}>
+            <NavLink href="/">Home</NavLink>
+            <NavLink href="/privacy">Privacy</NavLink>
+            <NavLink href="/donate">Donate</NavLink>
+            <NavLink href="/contact">Contact Us</NavLink>
+            <PrimaryLink css={roundedHeaderButton && tw`rounded-full`}>Welcome {realname}</PrimaryLink>
+          </NavLinks>
+        ]);
+      }
+    };
+    fetchAdmin();
+  }, []);
 
   logoLink = logoLink || defaultLogoLink;
   links = links || defaultLinks;

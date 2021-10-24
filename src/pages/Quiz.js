@@ -1,20 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import * as Survey from 'survey-react'
 import './survey.css';
+import Header from "components/headers/light.js";
 
-import AnimationRevealPage from "helpers/AnimationRevealPage.js";
-import { Container as ContainerBase } from "components/misc/Layouts";
+import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
 import tw from "twin.macro";
 import styled from "styled-components";
 import { Link, useHistory } from 'react-router-dom';
 import ReactLoading from 'react-loading';
+import './404.css';
 
 import { sendRequest, getCookie } from '../util';
-
-
-const Container = tw(ContainerBase)`min-h-screen bg-primary-600 text-white font-medium flex justify-center -m-8`;
-const Content = tw.div`max-w-screen-xl m-0 sm:mx-20 sm:my-16 bg-white text-gray-900 shadow sm:rounded-lg flex justify-center flex-1`;
-const MainContainer = tw.div`lg:w-1/2 xl:w-5/12 p-6 sm:p-12`;
 
 Survey.StylesManager.applyTheme('modern');
 Survey.surveyStrings.loadingSurvey = "Please wait. Your survey is loading. . .";
@@ -120,19 +116,16 @@ const SurveyComponent = () => {
   }, []);
 
   return (
-  <AnimationRevealPage>
     <Container>
-      <Content>
-        <MainContainer>
+      <Header />
+        <div class='content-panel'>
             {(quizData.length>0 && survey) && <Survey.Survey model={survey} />}
             {(quizData.length === 0 || !survey) && <ReactLoading type="spin" color="#34d339" height={'20%'} width={'20%'} />}
-            {(quizData.length>0 && score>=0) && <Button onClick={()=>{
+            {(quizData.length>0 && score>=0) && <div class="btn-panel"><Button onClick={()=>{
               history.push(`/result?score=${score}`);
-            }}><span className="text">Check Result</span></Button>}
-        </MainContainer>
-      </Content>
-    </Container>
-  </AnimationRevealPage>);
+            }}><span className="text">Check Result</span></Button></div>}
+        </div>
+    </Container>);
 }
 
 export default SurveyComponent;
