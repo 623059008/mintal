@@ -49,7 +49,7 @@ import PrivacyPolicyPageImageSrc from "images/demo/PrivacyPolicyPage.jpeg";
 import TwoPlansWithDurationSwitcherPricing from "components/pricing/TwoPlansWithDurationSwitcher.js";
 import ThreePlansWithHalfPrimaryBackgroundPricing from "components/pricing/ThreePlansWithHalfPrimaryBackground.js";
 import ThreePlansPricing from "components/pricing/ThreePlans.js";
-import {createBatcher} from '_framer-motion@4.1.17@framer-motion';
+// import {createBatcher} from '_framer-motion@4.1.17@framer-motion';
 
 // import ThreeColWithSideImageFeatures from "components/features/ThreeColWithSideImage.js";
 // import TwoColWithButtonFeatures from "components/features/TwoColWithButton.js";
