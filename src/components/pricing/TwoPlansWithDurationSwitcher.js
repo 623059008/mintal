@@ -289,7 +289,7 @@ class SurveyComponent extends React.Component {
                   columns: [
                     {
                       cellType: "rating",
-                      " name": "level",
+                      name: "level",
                       title: "Level",
                       isRequired: true,
                       rateMin: 1,
@@ -297,18 +297,8 @@ class SurveyComponent extends React.Component {
                       minRateDescription: "(Most unlikely)",
                       maxRateDescription: "(Most likely)"
                     }
-                    
                   ],
-                  choices: [1],
                   cellType: "checkbox",
-                  rows: [
-                    "What are you currently feels right now",
-                  ]
-                },
-                {
-                  type: "comment",
-                  name: "comment",
-                  title: "Comments/Precision"
                 }
               ]
             }
@@ -423,7 +413,7 @@ export default ({
       </ContentWithPaddingXl>
       <DecoratorBlob1 />
       <DecoratorBlob2 />
-      <script crossorigin src="https://unpkg.com/survey-react"></script>
+      <script crossOrigin={true} src="https://unpkg.com/survey-react"></script>
     </Container>
   );
 };
