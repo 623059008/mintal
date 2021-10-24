@@ -8,6 +8,10 @@ mintal app backend
 
 see [egg docs][egg] for more detail.
 
+### mysql connection
+change mysql setting in config/config.default.js
+
+
 ### Development
 
 ```bash
