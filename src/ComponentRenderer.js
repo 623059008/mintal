@@ -18,7 +18,7 @@ import AgencyLandingPageImageSrc from "images/demo/AgencyLandingPage.jpeg";
 // import ServiceLandingPageImageSrc from "images/demo/ServiceLandingPage.jpeg";
 // import HostingCloudLandingPageImageSrc from "images/demo/HostingCloudLandingPage.jpeg";
 
-
+// import RecordPage from "page/Record.js";
 import LoginPage from "pages/Login.js";
 import SignupPage from "pages/Signup.js";
 import QuizPage from "pages/Quiz";
@@ -142,6 +142,12 @@ export const components = {
   },
 
   innerPages: {
+    // RecordPage: {
+    //   component: RecordPage,
+    //   imageSrc: LoginPageImageSrc,
+    //   scrollAnimationDisabled: true,
+    //   url: `/components/innerPages/RecordPage`,
+    // },
     LoginPage: {
       component: LoginPage,
       imageSrc: LoginPageImageSrc,

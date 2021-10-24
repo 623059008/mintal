@@ -92,11 +92,11 @@ export default () => {
   /* Change this according to your needs */
   const cards = [
     {
-      imageSrc: "http://qimg.hxnews.com/2020/0109/1578545100178.jpg",
-      title: "Thomas",
+      imageSrc: "https://pic3.zhimg.com/80/v2-8bccc862a9a4fe03077c1926f80a9503_720w.jpg?source=1940ef5c",
+      title: "Dajun Piao",
       description: "Good at emotion control, guide you out the bad mood",
       locationText: "Pittsburgh, PA",
-      pricingText: "USD 39/Day",
+      pricingText: "LGBT+ target ",
       rating: "4.8",
     },
     {
@@ -104,24 +104,24 @@ export default () => {
       title: "Soho Paradise",
       description: "Good friend with you, figure out your depression source",
       locationText: "Pittsburgh, PA",
-      pricingText: "USD 50/Day",
-      rating: 4.9,
+      pricingText: "marriage target",
+      rating: "4.9",
     },
     {
       imageSrc: "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F35%2F2020%2F08%2F27%2Fwide-black-female-doctor-2000.jpg&w=1100&h=583&c=sc&poi=face&q=85",
       title: "Hotel Baja",
       description: "Be happiness with you and help you out of dpepression.",
       locationText: "Palo Alto, CA",
-      pricingText: "USD 19/Day",
+      pricingText: "target to all differents kinds of metal health",
       rating: "5.0",
     },
     {
-      imageSrc: "https://pic3.zhimg.com/80/v2-8bccc862a9a4fe03077c1926f80a9503_720w.jpg?source=1940ef5c",
-      title: "Dajun Piao",
+      imageSrc: "http://qimg.hxnews.com/2020/0109/1578545100178.jpg",
+      title: "Thomas",
       description: "Very intelligent with an excellent bedside manner. Called me personally to give me routine lab results that were perfectly normal. She’s a good, solid doctor. Highly recommended.",
       locationText: "Arizona, RAK",
-      pricingText: "USD 99/Day",
-      rating: 4.5,
+      pricingText: "",
+      rating: "4.5",
     },
   ]
 
