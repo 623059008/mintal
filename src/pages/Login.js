@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import { Container as ContainerBase } from "components/misc/Layouts";
 import tw from "twin.macro";
@@ -107,8 +107,11 @@ const submit=()=>{
   },
   "body": JSON.stringify(json),
   "method": "POST",
-  "mode": "cors",
+  "mode": "no-cors",
   "credentials": "include"
+}).then(function(response){
+  console.log(response)
+
 });
   // history.push(`/components/blocks/Pricing/TwoPlansWithDurationSwitcher`);
 };

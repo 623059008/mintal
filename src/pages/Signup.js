@@ -1,6 +1,4 @@
-
-import React from "react";
-import DatePicker from 'react-date-picker';
+import React, { useState } from 'react';
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import { Container as ContainerBase } from "components/misc/Layouts";
 import tw from "twin.macro";
@@ -38,8 +36,6 @@ const SocialButton = styled.a`
 
 const DividerTextContainer = tw.div`my-12 border-b text-center relative`;
 const DividerText = tw.div`leading-none px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform -translate-y-1/2 absolute inset-x-0 top-1/2 bg-transparent`;
-
-const Form = tw.form`mx-auto max-w-xs`;
 const DIV= tw.div`flex-auto justify-around`;
 const Input1 = tw.input`w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5 first:mt-0`;
 const Input2 = tw.input`w-1/3 px-5 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5 first:mt-0`;
@@ -82,10 +78,40 @@ export default ({
   tosUrl = "#",
   privacyPolicyUrl = "#",
   signInUrl =`/components/innerPages/LoginPage`,
-  newEdit= () => {
-    history.push(signInUrl);
+}) => {
+  const [nameValue,setNameValue]=useState(false);
+const [emailValue,setEmailValue]=useState(false);
+const [yearValue,setYearValue]=useState(false);
+const [monthValue,setMonthValue]=useState(false);
+const [date,setDateValue]=useState(false);
+const submit=()=>{
+  let birth=yearValue+monthValue+date;
+  console.log(birth);
+  // let json=`{"username":${nameValue}}`;
+  let json = {realname:nameValue,email:emailValue,birhday:birth};
+  // const dataSend=JSON.parse(username:nameValue);
+  console.log(json);
+  fetch("http://192.168.0.25:7001/signup", {
+  headers: {
+    // "Access-Control-Allow-Origin": "*",
+    // "Access-Control-Allow-Methods": "POST",
+    // "Access-Control-Allow-Headers": "Origin, Methods, Content-Type",
+    "accept": "*/*",
+    "accept-language": "zh,en;q=0.9,zh-CN;q=0.8",
+    "bnc-uuid": "6c30d597-10d2-4196-9e28-5fa6340612b6",
+    "cache-control": "no-cache",
+    "clienttype": "web",
+    "content-type": "application/json",
   },
-}) => (
+  "body": JSON.stringify(json),
+  "method": "POST",
+  "mode": "no-cors",
+  "credentials": "include"
+});
+  // history.push(`/components/blocks/Pricing/TwoPlansWithDurationSwitcher`);
+};
+
+  return(
   <AnimationRevealPage>
     <Container>
       <Content>
@@ -109,14 +135,14 @@ export default ({
               <DividerTextContainer>
                 <DividerText>Or Sign up with your e-mail</DividerText>
               </DividerTextContainer>
-                <Input1 type="email" placeholder="Email" />
-                <Input1 type="Name" placeholder="Name" />
+              <Input1 type="email" placeholder="Email" onChange={e=>setEmailValue(e.target.value)}/>
+                <Input1 type="Name" placeholder="Name" onChange={e=>setNameValue(e.target.value)}/>
                 <DIV>
-                <Input2 type="year" placeholder="Year"   />
-                <Input2 type="mon" placeholder="Month"  />
-                <Input2 type="day" placeholder="Day" />
+                <Input2 type="year" placeholder="Year"  onChange={e=>setYearValue(e.target.value)} />
+                <Input2 type="mon" placeholder="Month"  onChange={e=>setMonthValue(e.target.value)}/>
+                <Input2 type="day" placeholder="Day" onChange={e=>setDateValue(e.target.value)}/>
                   </DIV>
-                <SubmitButton onClick={newEdit}>
+                <SubmitButton onClick={submit}>
                   <SubmitButtonIcon className="icon" />
                   <span className="text">Sign Up</span>
                 </SubmitButton>
@@ -147,4 +173,5 @@ export default ({
       </Content>
     </Container>
   </AnimationRevealPage>
-);
+)
+};
