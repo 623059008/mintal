@@ -1,12 +1,12 @@
-import React from "react";
+
 import tw from "twin.macro";
 import { Link, useHistory } from 'react-router-dom';
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
-
+import React, { useState, useEffect } from "react";
 import Header, { NavLink, NavLinks, PrimaryLink, LogoLink, NavToggle, DesktopNavLinks } from "../headers/light.js";
 import ResponsiveVideoEmbed from "../../helpers/ResponsiveVideoEmbed.js";
-
+import { sendRequest, getCookie } from "../../util";
 const StyledHeader = styled(Header)`
   ${tw`pt-8 max-w-none`}
   ${DesktopNavLinks} ${NavLink}, ${LogoLink} {
@@ -60,9 +60,7 @@ export default ({
   vis,
   history  = useHistory(),
   signUpUrl = `/components/innerPages/SignUpPage`,
-  goquiz=()=>{
-    vis=1;
-  }}) => {
+}) => {
 
   const navLinks = [
     <NavLinks key={1}>
@@ -84,6 +82,17 @@ export default ({
       </PrimaryLink>
     </NavLinks>
   ];
+  const fetchLanding =() => {
+    const uid = getCookie('userid');
+    if(!uid) {
+      history.push('/signin');
+      return;
+    }else{
+      history.push('/quiz');
+    }
+
+   
+  }
 
   return (
     <Container>
@@ -98,7 +107,7 @@ export default ({
               <br />
               <SlantedBackground>Always with you</SlantedBackground>
             </Heading>
-            <PrimaryAction>Start a test with us</PrimaryAction>
+            <PrimaryAction onClick={fetchLanding}>Start a test with us</PrimaryAction>
           </LeftColumn>
           <RightColumn>
             <StyledResponsiveVideoEmbed
