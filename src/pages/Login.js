@@ -94,22 +94,22 @@ const submit=()=>{
   // const dataSend=JSON.parse(username:nameValue);
   console.log(json);
   fetch("http://192.168.0.25:7001/signin", {
-  headers: {
-    // "Access-Control-Allow-Origin": "*",
-    // "Access-Control-Allow-Methods": "POST",
-    // "Access-Control-Allow-Headers": "Origin, Methods, Content-Type",
-    "accept": "*/*",
-    "accept-language": "zh,en;q=0.9,zh-CN;q=0.8",
-    "bnc-uuid": "6c30d597-10d2-4196-9e28-5fa6340612b6",
-    "cache-control": "no-cache",
-    "clienttype": "web",
-    "content-type": "application/json",
-  },
-  "body": JSON.stringify(json),
-  "method": "POST",
-  "mode": "cors",
-  "credentials": "include"
-});
+    headers: {
+      // "Access-Control-Allow-Origin": "*",
+      // "Access-Control-Allow-Methods": "POST",
+      // "Access-Control-Allow-Headers": "Origin, Methods, Content-Type",
+      "accept": "*/*",
+      "accept-language": "zh,en;q=0.9,zh-CN;q=0.8",
+      "bnc-uuid": "6c30d597-10d2-4196-9e28-5fa6340612b6",
+      "cache-control": "no-cache",
+      "clienttype": "web",
+      "content-type": "application/json",
+    },
+    "body": JSON.stringify(json),
+    "method": "POST",
+    "mode": "no-cors",
+    "credentials": "include"
+  });
   // history.push(`/components/blocks/Pricing/TwoPlansWithDurationSwitcher`);
 };
 

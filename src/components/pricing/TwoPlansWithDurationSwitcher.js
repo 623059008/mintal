@@ -97,6 +97,7 @@ class SurveyComponent extends React.Component {
   };
 
   onCompleteComponent() {
+    console.log('[*] complete');
     this.setState({ isCompleted: true });
   }
   render() {
@@ -111,29 +112,29 @@ class SurveyComponent extends React.Component {
       grade: [1, 2, 3, 4, 5]
     }
 
-    // let shuffle_choise = (temp) => {
-    //   let choice = JSON.parse(JSON.stringify(temp.choice));
-    //   let grade = JSON.parse(JSON.stringify(temp.grade));
+    let shuffle_choise = (temp) => {
+      let choice = JSON.parse(JSON.stringify(temp.choice));
+      let grade = JSON.parse(JSON.stringify(temp.grade));
 
-    //   let currentIndex = choice.length;
-    //   let randomIndex;
+      let currentIndex = choice.length;
+      let randomIndex;
     
-    //   // While there remain elements to shuffle...
-    //   while (currentIndex !== 0) {
+      // While there remain elements to shuffle...
+      while (currentIndex !== 0) {
     
-    //     // Pick a remaining element...
-    //     randomIndex = Math.floor(Math.random() * currentIndex);
-    //     currentIndex--;
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
     
-    //     // And swap it with the current element.
-    //     [ choice[currentIndex], choice[randomIndex] ] = [
-    //       choice[randomIndex], choice[currentIndex] ];
-    //     // And swap it with the current element.
-    //     [ grade[currentIndex], grade[randomIndex] ] = [
-    //       grade[randomIndex], grade[currentIndex] ];
-    //   }
-    //   return {choice, grade};
-    // }
+        // And swap it with the current element.
+        [ choice[currentIndex], choice[randomIndex] ] = [
+          choice[randomIndex], choice[currentIndex] ];
+        // And swap it with the current element.
+        [ grade[currentIndex], grade[randomIndex] ] = [
+          grade[randomIndex], grade[currentIndex] ];
+      }
+      return {choice, grade};
+    }
  
     let questionList = {
       question1: "Whether the learning efficiency in the new environment\
@@ -149,7 +150,7 @@ class SurveyComponent extends React.Component {
       question10: "I noticed that my weight was dropping",
       question11: "My heartbeat is faster than before",
       question12: "I'm restless, it's hard to keep calm",
-      qustion13: "My mind is as clear as usual",
+      question13:  "My mind is as clear as usual",
       question14: "I am full of expectations for the future",
       question15: "I get angry more easily than usual, or get irritated easily"
     }
@@ -165,51 +166,37 @@ class SurveyComponent extends React.Component {
               elements: [
                 {
                   type: "radiogroup",
-                  name: "question0",
+                  name: "question1",
                   renderAs: "prettycheckbox",
                   title: questionList.question1,
                   choices: temp.choise
                 },
                 {
                   type: "radiogroup",
-                  name: "question1",
+                  name: "question2",
                   renderAs: "prettycheckbox",
                   title: questionList.question2,
                   choices: temp.choise
                 },
                 {
                   type: "radiogroup",
-                  name: "question2",
+                  name: "question3",
                   renderAs: "prettycheckbox",
                   title: questionList.question3,
                   choices: temp.choise
                 },
                 {
                   type: "radiogroup",
-                  name: "question3",
+                  name: "question4",
                   renderAs: "prettycheckbox",
                   title: questionList.question4,
                   choices: temp.choise
                 },
                 {
                   type: "radiogroup",
-                  name: "question4",
+                  name: "question5",
                   renderAs: "prettycheckbox",
                   title: questionList.question5,
-                  choices: temp.choise
-                },
-                {
-                  type: "radiogroup",
-                  name: "question5",
-                  renderAs: "prettycheckbox",
-                  title: questionList.question6,
-                  choices: temp.choise
-                },
-                {
-                  type: "radiogroup",
-                  name: "question5",
-                  renderAs: "prettycheckbox",
-                  title: questionList.question7,
                   choices: temp.choise
                 },
                 {
@@ -230,21 +217,21 @@ class SurveyComponent extends React.Component {
                   type: "radiogroup",
                   name: "question8",
                   renderAs: "prettycheckbox",
-                  title: questionList.question10,
+                  title: questionList.question8,
                   choices: temp.choise
                 },
                 {
                   type: "radiogroup",
                   name: "question9",
                   renderAs: "prettycheckbox",
-                  title: questionList.question11,
+                  title: questionList.question9,
                   choices: temp.choise
                 },
                 {
                   type: "radiogroup",
                   name: "question10",
                   renderAs: "prettycheckbox",
-                  title: questionList.question11,
+                  title: questionList.question10,
                   choices: temp.choise
                 },
                 {
@@ -281,12 +268,11 @@ class SurveyComponent extends React.Component {
                   renderAs: "prettycheckbox",
                   title: questionList.question15,
                   choices: temp.choise
-                },
+                }
               ]
             }
           ]
         },
-
         {
           name: "page2",
           elements: [
@@ -321,7 +307,7 @@ class SurveyComponent extends React.Component {
                 },
                 {
                   type: "comment",
-                  name: "comment2",
+                  name: "comment",
                   title: "Comments/Precision"
                 }
               ]
@@ -335,7 +321,7 @@ class SurveyComponent extends React.Component {
       showQuestionNumbers: "off",
       completedHtml: "<p><h4>Security Profile Results !!</h4></p>"
     };
-    var classNames = require('classnames');
+    // var classNames = require('classnames');
     
     var surveyRender = !this.state.isCompleted ? (
       
