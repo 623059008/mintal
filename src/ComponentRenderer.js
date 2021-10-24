@@ -18,7 +18,7 @@ import RestaurantLandingPageImageSrc from "images/demo/RestaurantLandingPage.jpe
 import ServiceLandingPageImageSrc from "images/demo/ServiceLandingPage.jpeg";
 import HostingCloudLandingPageImageSrc from "images/demo/HostingCloudLandingPage.jpeg";
 
-
+// import RecordPage from "page/Record.js";
 import LoginPage from "pages/Login.js";
 import SignupPage from "pages/Signup.js";
 import PricingPage from "pages/Pricing.js";
@@ -140,6 +140,12 @@ export const components = {
   },
 
   innerPages: {
+    // RecordPage: {
+    //   component: RecordPage,
+    //   imageSrc: LoginPageImageSrc,
+    //   scrollAnimationDisabled: true,
+    //   url: `/components/innerPages/RecordPage`,
+    // },
     LoginPage: {
       component: LoginPage,
       imageSrc: LoginPageImageSrc,

@@ -16,9 +16,9 @@ export default () => (
     <Hero />
     <Features />
     <SliderCard />
-    <TrendingCard />
+    {/* <TrendingCard /> */}
     <MainFeature />
-    <Blog />
+    {/* <Blog /> */}
     <Testimonial textOnLeft={true}/>
     <FAQ />
     <SubscribeNewsLetterForm />
