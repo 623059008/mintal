@@ -32,19 +32,19 @@ export default ({textOnLeft = false}) => {
   //Change the statistics variable as you like, add or delete objects
   const statistics = [
     {
-      key: "Areas",
+      key: "Countries",
       value: "192",
     },
     {
-      key: "Sites",
+      key: "Hotels",
       value: "479",
     },
     {
-      key: "Doctors",
+      key: "Rooms",
       value: "2093",
     },
     {
-      key: "Consultee",
+      key: "Workers",
       value: "10347",
     }
   ]
@@ -53,7 +53,7 @@ export default ({textOnLeft = false}) => {
     <Container>
       <TwoColumn>
         <ImageColumn>
-          <Image imageSrc="https://images.unsplash.com/photo-1582564286939-400a311013a2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1024&q=80" />
+          <Image imageSrc="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.sytuku.com%2Fuptu%2Fyulantu%2F160624%2F5-1606241T633.jpg&refer=http%3A%2F%2Fimg.sytuku.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1637659884&t=59d76fd9536b80a67d8ad18435683b39" />
         </ImageColumn>
         <TextColumn textOnLeft={textOnLeft}>
           <TextContent>
