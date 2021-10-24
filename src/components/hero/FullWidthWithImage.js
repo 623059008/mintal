@@ -12,15 +12,15 @@ const StyledHeader = styled(Header)`
   }
 `;
 
-const NavLink = tw(NavLinkBase)`
-  sm:text-sm sm:mx-6
-`;
+// const NavLink = tw(NavLinkBase)`
+//   sm:text-sm sm:mx-6
+// `;
 
-const Container = tw.div`relative -mx-8 -mt-8`;
+const Container = tw.div`relative -mx-8 -mt-4`;
 const TwoColumn = tw.div`flex flex-col lg:flex-row bg-gray-100`;
 const LeftColumn = tw.div`ml-8 mr-8 xl:pl-10 py-8`;
 const RightColumn = styled.div`
-  background-image: url("https://pica.zhimg.com/80/22b6d911be515211de0cd76b4ca93d73_720w.jpg?source=1940ef5c");
+  background-image: url("http://p9.itc.cn/images01/20201215/f02e715699dc430d9b7591f9aba88305.jpeg");
   ${tw`bg-green-500 bg-cover bg-center xl:ml-24 h-96 lg:h-auto lg:w-1/2 lg:flex-1`}
 `;
 
@@ -42,66 +42,64 @@ const Actions = styled.div`
 `;
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-const result = urlParams.get('score')
+const result = urlParams.get('result')
 let finalResult = 0
-if (result <30) {
+if (result < 30) {
   finalResult = 1
 }
-else if(result <45 && result > 30) {
+else if (result < 45 && result > 30) {
   finalResult = 2
 }
 else {
-  finalResult  = 3
+  finalResult = 3
 }
 
 console.log("final",finalResult,result)
 export default ({
-  navLinks = [
-    <NavLinks key={1}>
-      <NavLink href="#">About</NavLink>
-      <NavLink href="#">Blog</NavLink>
-      <NavLink href="#">Pricing</NavLink>
-      <NavLink href="#">Login</NavLink>
-    </NavLinks>
-  ],
+  // navLinks = [
+  //   <NavLinks key={1}>
+  //     <NavLink href="#">About</NavLink>
+  //     <NavLink href="#">Blog</NavLink>
+  //     <NavLink href="#">Pricing</NavLink>
+  //     <NavLink href="#">Login</NavLink>
+  //   </NavLinks>
+  // ],
   // heading = (finalResult==1)?():(()?():()),
   // heading2  = (),
   heading = (
     <>
-    {result==1?"Enjoy the life" :(result==2 ? "More smelling  ":"No Worries")}
+      {result == 1 ? "Enjoy the life" : (result == 2 ? "More smelling  " : "No Worries")}
       <wbr />
       <br />
-      <span tw="text-primary-500">{result==1?"Tomorrow is brighter" :(result==2 ? "Less worry ":"We are here to help")}
-</span>
+      <span tw="text-primary-500">{result == 1 ? "Tomorrow is brighter" : (result == 2 ? "Less worry " : "We are here to help")}
+      </span>
     </>
   ),
   description1 = "You are not currently significantly troubled by depression. It is normal that life's events, big and small, may bring some mood swings, and almost everyone experiences sadness or depression at one time or another.",
   description2 = "For you at the moment, perhaps life now meets your expectations and is still under your control, so you don't get a lot of indigestible depression. Perhaps you are more optimistic yourself, or you have a high tolerance for frustration, which also enables you to face life's various overwhelming events very well.",
   description3 = "You have good emotional regulation ability, at least the current state is so. When something bad happens, you may feel some negative emotions in the moment, but you are able to digest them quickly or use some methods to get rid of them.",
 
-description4 = "You may currently be in a moderate state of depression.",
+  description4 = "You may currently be in a moderate state of depression.",
   description5 = "In the near future, you may be prone to feeling sad, upset, or some unexplained anxiety. You can only feel pleasure if \
   something really exciting and happy happens, but the pleasure lasts much shorter than before.",
   description6 = "Things that used to be fun and colorful seem to have faded recently. You have some trouble getting up to do something. If you have been criticized or had a little trouble at work or school. If you are criticized or have a little trouble at work or school, you are more likely to doubt yourself, \
 and sometimes you feel that reality is really powerless.",
 
 
-description7 = "You may currently be in a moderate state of depression. In the near future, you may be prone to feeling sad, upset, or somewhat inexplicably anxious. You can only feel happy when something really exciting and happy happens, but this happiness lasts much shorter than before.",
+  description7 = "You may currently be in a moderate state of depression. In the near future, you may be prone to feeling sad, upset, or somewhat inexplicably anxious. You can only feel happy when something really exciting and happy happens, but this happiness lasts much shorter than before.",
   description8 = "Things that used to be fun and colorful seem to have faded lately. You have some difficulty in getting up and doing things. If you get criticized or have a little trouble at work or school. If you get criticized or have a little trouble at work or school, you are more likely to doubt yourself, and sometimes you feel really powerless in reality.",
   description9 = "Physically. Physically, you may experience loss of appetite, easy fatigue, insomnia, etc. Some people show a great increase in appetite and sleepiness. Whichever physical reaction is different from usual - it may indicate that your current state is a cause for concern.",
-
   primaryActionUrl = "",
   primaryActionText = "Sign Up",
   secondaryActionUrl = "#",
   secondaryActionText = "Search Hotels"
 }) => {
   return (
-    <Container>
+    <Container style={{ marginTop: '2em' }}>
       <TwoColumn>
         <LeftColumn>
-          <StyledHeader links={navLinks} collapseBreakpointClass="sm" />
           <Content>
-            <Heading>{heading}</Heading>
+          <Heading>{heading}</Heading>
             {finalResult == 1?
             (<Paragraph>{description1}
             </Paragraph>):(finalResult == 2? 
@@ -124,12 +122,12 @@ description7 = "You may currently be in a moderate state of depression. In the n
             </Paragraph>:
             <Paragraph>{description9}</Paragraph>)}
             <Actions>
-              <a href={primaryActionUrl} className="action primaryAction">
-                {primaryActionText} 
-              </a>
+              <a href="action primaryAction">
+                {primaryActionText}
+              </a >
               <a href={secondaryActionUrl} className="action secondaryAction">
                 {secondaryActionText}
-              </a>
+              </a >
             </Actions>
           </Content>
         </LeftColumn>
