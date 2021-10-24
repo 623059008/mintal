@@ -19,9 +19,9 @@ export default () => (
     <Features />
     <SliderCard />
     {/* <TrendingCard /> */}
-    <MainFeature />
+    {/* <MainFeature /> */}
     {/* <Blog /> */}
-    <Testimonial textOnLeft={true}/>
+    {/* <Testimonial textOnLeft={true}/> */}
     <FAQ />
     <Footer />
   </AnimationRevealPage>
