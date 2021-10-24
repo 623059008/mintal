@@ -57,8 +57,8 @@ export default ({textOnLeft = false}) => {
         </ImageColumn>
         <TextColumn textOnLeft={textOnLeft}>
           <TextContent>
-            <Heading>We have the best service.</Heading>
-            <Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Description>
+            <Heading>We stay strong connections .</Heading>
+            <Description>With more than twenty psychiatric consulting companies and hospitals in the world, The weekly meetings and monthly reviews keep both our colleagues and us up to date with the latest psychiatric researches in order to support everyone who needs us.</Description>
             <Statistics>
               {statistics.map((statistic, index) => (
               <Statistic key={index}>

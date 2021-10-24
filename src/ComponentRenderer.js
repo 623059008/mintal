@@ -44,7 +44,7 @@ import PrivacyPolicyPageImageSrc from "images/demo/PrivacyPolicyPage.jpeg";
 // import IllustrationAndVideoHero from "components/hero/TwoColumnWithVideo.js";
 // import IllustrationAndInputHero from "components/hero/TwoColumnWithInput.js";
 // import FeaturesAndTestimonialHero from "components/hero/TwoColumnWithFeaturesAndTestimonial.js";
-import FullWidthWithImageHero from "components/hero/FullWidthWithImage.js";
+import ResultPage from "demos/HotelTravelLandingPage.js";
 // import BackgroundAsImageWithCenteredContentHero from "components/hero/BackgroundAsImageWithCenteredContent.js";
 // import IllustrationAndPrimaryBackgroundHero from "components/hero/TwoColumnWithPrimaryBackground.js";
 
@@ -552,7 +552,7 @@ export const shortUrl = {
     scrollAnimationDisabled: true,
   },
   result: {
-    component: FullWidthWithImageHero,
+    component: ResultPage,
     url: '/result',
     scrollAnimationDisabled: true,
   },
