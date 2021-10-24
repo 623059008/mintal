@@ -23,6 +23,7 @@ const SurveyComponent = () => {
   const history = useHistory();
   const [survey, setSurvey] = useState(null);
   const [quizData, setQuizData] = useState([]);
+  const [score, setScore] = useState(0);
   useEffect(() => {
     const fetchQuiz = async () => {
       const uid = getCookie('userid');
@@ -30,7 +31,7 @@ const SurveyComponent = () => {
         history.push('/signin');
         return;
       }
-      const res = JSON.parse(await sendRequest('quiz', { uid: uid, count: 1 }))
+      const res = JSON.parse(await sendRequest('quiz', { uid: uid, count: 10 }))
       if(!res.success) {
         history.push('/error');
         return;
@@ -40,7 +41,6 @@ const SurveyComponent = () => {
       return data;
     }
     fetchQuiz().then((data) => {
-      console.log('then: ',data);
       let json = {
         title: 'COVID-19 Mental Survey',
         showProgressBar: 'top',
@@ -62,7 +62,7 @@ const SurveyComponent = () => {
         completedHtml:
           '<h4>You have completed this quiz. <b>{correctedAnswers}</b> questions from <b>{questionCount}</b>.</h4>'
       }
-      data.forEach(item => {
+      data && data.forEach(item => {
         json.pages.push({
           maxTimeToFinish: 120,
           questions: [
@@ -76,22 +76,36 @@ const SurveyComponent = () => {
           ]
         });
       });
+      console.log(json.pages);
       window.survey = new Survey.Model(json);
       setSurvey(window.survey);
-      window.survey.onComplete.add(function (sender) {
-        console.log('quiz data: ', sender);
-        let sendRecord = async () => {
+      window.survey.onComplete.add(function(sender) {
+        console.log('quiz data: ', sender.data);
+        const answerList =  JSON.parse(data[0]["choices"]);
+        const answer = sender.data || [];
+        const scoreList = []
+        for(let ans in answer) {
+          answerList.forEach((item,ind) => {
+            if(item === answer[ans]) {
+              scoreList.push(ind+1);
+            }
+          });
+        }
+        let sendRecord = async (score) => {
           const uid = getCookie('userid');
           if(!uid) {
             return;
           }
-          const res = JSON.parse(await sendRequest('addRecord', { uid: uid, quizscore: 35 }))
+          const res = JSON.parse(await sendRequest('addRecord', { uid: uid, quizscore: score }))
           if(!res.success) {
             history.push('/error');
             return;
           }
-          history.push('/result');
+          // history.push(`/result?score=${score}`);
+          setScore(score);
         }
+        const sum = scoreList && scoreList.reduce((next, prev)=> next+prev) || 0;
+        sendRecord(sum);
       }); 
     })
   }, []);

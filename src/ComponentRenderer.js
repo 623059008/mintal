@@ -22,6 +22,7 @@ import AgencyLandingPageImageSrc from "images/demo/AgencyLandingPage.jpeg";
 import LoginPage from "pages/Login.js";
 import SignupPage from "pages/Signup.js";
 import QuizPage from "pages/Quiz";
+import NotFoundPage from 'pages/404';
 import PricingPage from "pages/Pricing.js";
 import AboutUsPage from "pages/AboutUs.js";
 import ContactUsPage from "pages/ContactUs.js";
@@ -42,7 +43,7 @@ import PrivacyPolicyPageImageSrc from "images/demo/PrivacyPolicyPage.jpeg";
 // import IllustrationAndVideoHero from "components/hero/TwoColumnWithVideo.js";
 // import IllustrationAndInputHero from "components/hero/TwoColumnWithInput.js";
 // import FeaturesAndTestimonialHero from "components/hero/TwoColumnWithFeaturesAndTestimonial.js";
-// import FullWidthWithImageHero from "components/hero/FullWidthWithImage.js";
+import FullWidthWithImageHero from "components/hero/FullWidthWithImage.js";
 // import BackgroundAsImageWithCenteredContentHero from "components/hero/BackgroundAsImageWithCenteredContent.js";
 // import IllustrationAndPrimaryBackgroundHero from "components/hero/TwoColumnWithPrimaryBackground.js";
 
@@ -543,6 +544,16 @@ export const shortUrl = {
     imageSrc: SignupPageImageSrc,
     scrollAnimationDisabled: true,
   },
+  result: {
+    component: FullWidthWithImageHero,
+    url: '/result',
+    scrollAnimationDisabled: true,
+  },
+  404: {
+    component: NotFoundPage,
+    url: '/404',
+    scrollAnimationDisabled: true,
+  },
   pricing: {
     component: PricingPage,
     url: `/components/innerPages/PricingPage`,
@@ -581,8 +592,8 @@ export default () => {
       return (<Component/>);
     }
     catch(e) {
-      console.log('Error: Component Not Found', e);
-      return <div> 404 Not Found </div>;
+      let Component = shortUrl["404"].component;
+      return <Component />;
     }
   // const { type, subtype, name } = useParams()
   // console.log(type, subtype, name);
