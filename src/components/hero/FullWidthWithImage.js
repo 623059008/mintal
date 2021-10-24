@@ -42,8 +42,8 @@ const Actions = styled.div`
 `;
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-const result = urlParams.get('result')
-let finalResult = 0
+const result = urlParams.get('score');
+let finalResult = 0;
 if (result <30) {
   finalResult = 1
 }
@@ -54,7 +54,7 @@ else {
   finalResult  = 3
 }
 
-console.log(finalResult)
+console.log("final",finalResult,result)
 export default ({
   // navLinks = [
   //   <NavLinks key={1}>
