@@ -52,10 +52,8 @@ export default ({
             {subheading && <Subheading>{subheading}</Subheading>}
             <Heading>{heading}</Heading>
             <Description>{description}</Description>
-            <Form action={formAction} method={formMethod}>
               <Input type="email" name="email" placeholder="Your Email Address" />
-              <SubmitButton type="submit">{submitButtonText}</SubmitButton>
-            </Form>
+              <SubmitButton onClick={() => {alert('You are subscribed!')}}>{submitButtonText}</SubmitButton>
           </TextContent>
         </TextColumn>
       </TwoColumn>
