@@ -12,9 +12,9 @@ const StyledHeader = styled(Header)`
   }
 `;
 
-const NavLink = tw(NavLinkBase)`
-  sm:text-sm sm:mx-6
-`;
+// const NavLink = tw(NavLinkBase)`
+//   sm:text-sm sm:mx-6
+// `;
 
 const Container = tw.div`relative -mx-8 -mt-8`;
 const TwoColumn = tw.div`flex flex-col lg:flex-row bg-gray-100`;
@@ -56,14 +56,14 @@ else {
 
 console.log(finalResult)
 export default ({
-  navLinks = [
-    <NavLinks key={1}>
-      <NavLink href="#">About</NavLink>
-      <NavLink href="#">Blog</NavLink>
-      <NavLink href="#">Pricing</NavLink>
-      <NavLink href="#">Login</NavLink>
-    </NavLinks>
-  ],
+  // navLinks = [
+  //   <NavLinks key={1}>
+  //     <NavLink href="#">About</NavLink>
+  //     <NavLink href="#">Blog</NavLink>
+  //     <NavLink href="#">Pricing</NavLink>
+  //     <NavLink href="#">Login</NavLink>
+  //   </NavLinks>
+  // ],
   // heading = (finalResult==1)?():(()?():()),
   // heading2  = (),
   heading = (
@@ -88,7 +88,7 @@ and sometimes you feel that reality is really powerless.",
     <Container>
       <TwoColumn>
         <LeftColumn>
-          <StyledHeader links={navLinks} collapseBreakpointClass="sm" />
+          {/* <StyledHeader links={navLinks} collapseBreakpointClass="sm" /> */}
           <Content>
             <Heading>{heading}</Heading>
             {finalResult == 1?

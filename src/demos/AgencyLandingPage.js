@@ -13,7 +13,7 @@ import Footer from "components/footers/MiniCenteredFooter.js";
 
 export default () => (
   <AnimationRevealPage>
-    {/* <Header/> */}
+    <Header/>
     <Hero />
     <MainFeature />
     <MainFeature2 />
