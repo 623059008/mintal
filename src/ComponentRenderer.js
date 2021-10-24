@@ -21,6 +21,7 @@ import AgencyLandingPageImageSrc from "images/demo/AgencyLandingPage.jpeg";
 // import RecordPage from "page/Record.js";
 import LoginPage from "pages/Login.js";
 import SignupPage from "pages/Signup.js";
+import RecordPage from "pages/PrivacyPolicy.js";
 import QuizPage from "pages/Quiz";
 import PricingPage from "pages/Pricing.js";
 import AboutUsPage from "pages/AboutUs.js";
@@ -49,7 +50,7 @@ import PrivacyPolicyPageImageSrc from "images/demo/PrivacyPolicyPage.jpeg";
 import TwoPlansWithDurationSwitcherPricing from "components/pricing/TwoPlansWithDurationSwitcher.js";
 import ThreePlansWithHalfPrimaryBackgroundPricing from "components/pricing/ThreePlansWithHalfPrimaryBackground.js";
 import ThreePlansPricing from "components/pricing/ThreePlans.js";
-import {createBatcher} from '_framer-motion@4.1.17@framer-motion';
+// import {createBatcher} from '_framer-motion@4.1.17@framer-motion';
 
 // import ThreeColWithSideImageFeatures from "components/features/ThreeColWithSideImage.js";
 // import TwoColWithButtonFeatures from "components/features/TwoColWithButton.js";
@@ -534,6 +535,12 @@ export const shortUrl = {
   signup: {
     component: SignupPage,
     url: `/SignupPage`,
+    imageSrc: SignupPageImageSrc,
+    scrollAnimationDisabled: true,
+  },
+  record: {
+    component: RecordPage,
+    url: `/RecordPage`,
     imageSrc: SignupPageImageSrc,
     scrollAnimationDisabled: true,
   },
