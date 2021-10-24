@@ -1,6 +1,4 @@
-
-import React from "react";
-import DatePicker from 'react-date-picker';
+import React, { useState } from 'react';
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import { Container as ContainerBase } from "components/misc/Layouts";
 import tw from "twin.macro";
@@ -13,6 +11,7 @@ import googleIconImageSrc from "images/google-icon.png";
 import twitterIconImageSrc from "images/twitter-icon.png";
 import { ReactComponent as SignUpIcon } from "feather-icons/dist/icons/user-plus.svg";
 import { components } from "ComponentRenderer.js";
+import {sendRequest, setCookie} from '../util';
 const Container = tw(ContainerBase)`min-h-screen bg-primary-600 text-white font-medium flex justify-center -m-8`;
 const Content = tw.div`max-w-screen-xl m-0 sm:mx-20 sm:my-16 bg-white text-gray-900 shadow sm:rounded-lg flex justify-center flex-1`;
 const MainContainer = tw.div`lg:w-1/2 xl:w-5/12 p-6 sm:p-12`;
@@ -38,8 +37,6 @@ const SocialButton = styled.a`
 
 const DividerTextContainer = tw.div`my-12 border-b text-center relative`;
 const DividerText = tw.div`leading-none px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform -translate-y-1/2 absolute inset-x-0 top-1/2 bg-transparent`;
-
-const Form = tw.form`mx-auto max-w-xs`;
 const DIV= tw.div`flex-auto justify-around`;
 const Input1 = tw.input`w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5 first:mt-0`;
 const Input2 = tw.input`w-1/3 px-5 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5 first:mt-0`;
@@ -82,10 +79,34 @@ export default ({
   tosUrl = "#",
   privacyPolicyUrl = "#",
   signInUrl =`/components/innerPages/LoginPage`,
-  newEdit= () => {
-    history.push(signInUrl);
-  },
-}) => (
+}) => {
+  const [nameValue,setNameValue]=useState(false);
+const [emailValue,setEmailValue]=useState(false);
+const [yearValue,setYearValue]=useState(false);
+const [monthValue,setMonthValue]=useState(false);
+const [date,setDateValue]=useState(false);
+const submit= async ()=>{
+  let birthday=yearValue+monthValue+date;
+  // let json=`{"username":${nameValue}}`;
+  let json = {realname:nameValue,email:emailValue,birthday};
+  // const dataSend=JSON.parse(username:nameValue);
+  console.log(json);
+  const res = JSON.parse(await sendRequest('signup', json));
+  console.log('json: ',res);
+  if(!res.success) {
+    alert('Fail to sign Up!');
+    return;
+  }
+  const { inserId } = res;
+  setCookie('userid', inserId);
+
+  setTimeout(()=>{
+    history.push(`/components/blocks/Pricing/TwoPlansWithDurationSwitcher`);
+  }, 500);
+  // history.push(`/components/blocks/Pricing/TwoPlansWithDurationSwitcher`);
+};
+
+  return(
   <AnimationRevealPage>
     <Container>
       <Content>
@@ -109,14 +130,14 @@ export default ({
               <DividerTextContainer>
                 <DividerText>Or Sign up with your e-mail</DividerText>
               </DividerTextContainer>
-                <Input1 type="email" placeholder="Email" />
-                <Input1 type="Name" placeholder="Name" />
+              <Input1 type="email" placeholder="Email" onChange={e=>setEmailValue(e.target.value)}/>
+                <Input1 type="Name" placeholder="Name" onChange={e=>setNameValue(e.target.value)}/>
                 <DIV>
-                <Input2 type="year" placeholder="Year"   />
-                <Input2 type="mon" placeholder="Month"  />
-                <Input2 type="day" placeholder="Day" />
+                <Input2 type="year" placeholder="Year"  onChange={e=>setYearValue(e.target.value)} />
+                <Input2 type="mon" placeholder="Month"  onChange={e=>setMonthValue(e.target.value)}/>
+                <Input2 type="day" placeholder="Day" onChange={e=>setDateValue(e.target.value)}/>
                   </DIV>
-                <SubmitButton onClick={newEdit}>
+                <SubmitButton onClick={submit}>
                   <SubmitButtonIcon className="icon" />
                   <span className="text">Sign Up</span>
                 </SubmitButton>
@@ -147,4 +168,5 @@ export default ({
       </Content>
     </Container>
   </AnimationRevealPage>
-);
+)
+};

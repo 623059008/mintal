@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import { Container as ContainerBase } from "components/misc/Layouts";
 import tw from "twin.macro";
@@ -10,6 +10,7 @@ import googleIconImageSrc from "images/google-icon.png";
 import twitterIconImageSrc from "images/twitter-icon.png";
 import { ReactComponent as LoginIcon } from "feather-icons/dist/icons/log-in.svg";
 import { Link, useHistory } from 'react-router-dom';
+import {sendRequest, setCookie} from '../util';
 const Container = tw(ContainerBase)`min-h-screen bg-primary-900 text-white font-medium flex justify-center -m-8`;
 const Content = tw.div`max-w-screen-xl m-0 sm:mx-20 sm:my-16 bg-white text-gray-900 shadow sm:rounded-lg flex justify-center flex-1`;
 const MainContainer = tw.div`lg:w-1/2 xl:w-5/12 p-6 sm:p-12`;
@@ -86,31 +87,23 @@ const [emailValue,setEmailValue]=useState(false);
 const [yearValue,setYearValue]=useState(false);
 const [monthValue,setMonthValue]=useState(false);
 const [date,setDateValue]=useState(false);
-const submit=()=>{
-  let birth=yearValue+monthValue+date;
-  console.log(birth);
+const submit=async ()=>{
+  let birthday=yearValue+monthValue+date;
   // let json=`{"username":${nameValue}}`;
-  let json = {realname:nameValue,email:emailValue,birhday:birth};
+  let json = {realname:nameValue,email:emailValue,birthday};
   // const dataSend=JSON.parse(username:nameValue);
-  console.log(json);
-  fetch("http://192.168.0.25:7001/signin", {
-    headers: {
-      // "Access-Control-Allow-Origin": "*",
-      // "Access-Control-Allow-Methods": "POST",
-      // "Access-Control-Allow-Headers": "Origin, Methods, Content-Type",
-      "accept": "*/*",
-      "accept-language": "zh,en;q=0.9,zh-CN;q=0.8",
-      "bnc-uuid": "6c30d597-10d2-4196-9e28-5fa6340612b6",
-      "cache-control": "no-cache",
-      "clienttype": "web",
-      "content-type": "application/json",
-    },
-    "body": JSON.stringify(json),
-    "method": "POST",
-    "mode": "no-cors",
-    "credentials": "include"
-  });
-  // history.push(`/components/blocks/Pricing/TwoPlansWithDurationSwitcher`);
+  const res = JSON.parse(await sendRequest('signin', json));
+  console.log('json: ',res);
+  if(!res.success) {
+    alert('Fail to sign in!');
+    return;
+  }
+  const { id } = res;
+  setCookie('userid', id);
+
+  setTimeout(()=>{
+    history.push(`/components/blocks/Pricing/TwoPlansWithDurationSwitcher`);
+  }, 500);
 };
 
 
