@@ -10,7 +10,7 @@ import Testimonial from "components/testimonials/TwoColumnWithImageAndProfilePic
 import FAQ from "components/faqs/SimpleWithSideImage.js";
 import SubscribeNewsLetterForm from "components/forms/SimpleSubscribeNewsletter.js";
 import Footer from "components/footers/MiniCenteredFooter.js";
-
+import { useHistory } from 'react-router-dom';
 export default () => (
   <AnimationRevealPage>
     <Hero />
@@ -21,7 +21,6 @@ export default () => (
     {/* <Blog /> */}
     <Testimonial textOnLeft={true}/>
     <FAQ />
-    <SubscribeNewsLetterForm />
     <Footer />
   </AnimationRevealPage>
 );

@@ -10,6 +10,7 @@ import { ReactComponent as BookIcon } from "feather-icons/dist/icons/book.svg";
 import { ReactComponent as StarIcon } from "feather-icons/dist/icons/star.svg";
 import { ReactComponent as ChevronLeftIcon } from "feather-icons/dist/icons/chevron-left.svg";
 import { ReactComponent as ChevronRightIcon } from "feather-icons/dist/icons/chevron-right.svg";
+import { useHistory } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 const Container = tw.div`relative`;
 const Content = tw.div`max-w-screen-xl mx-auto py-16 lg:py-20`;
@@ -66,7 +67,9 @@ const IconContainer = styled.div`
 const Text = tw.div`ml-2 text-sm font-semibold text-gray-800`;
 
 const PrimaryButton = tw(PrimaryButtonBase)`mt-auto sm:text-lg rounded-none w-full rounded sm:rounded-none sm:rounded-br-4xl py-3 sm:py-6`;
-export default () => {
+export default ({
+  history = useHistory(),
+}) => {
   // useState is used instead of useRef below because we want to re-render when sliderRef becomes available (not null)
   const [sliderRef, setSliderRef] = useState(null);
   const sliderSettings = {
@@ -123,7 +126,10 @@ export default () => {
       pricingText: "",
       rating: "4.5",
     },
-  ]
+  ];
+  const goConfirm=()=>{
+    history.push(`/confirm`);
+  };
 
   return (
     <Container>
@@ -164,7 +170,7 @@ export default () => {
                 </SecondaryInfoContainer>
                 <Description>{card.description}</Description>
               </TextInfo>
-              <PrimaryButton>Book Now</PrimaryButton>
+              <PrimaryButton onClick={goConfirm}>Book Now</PrimaryButton>
             </Card>
           ))}
         </CardSlider>
