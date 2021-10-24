@@ -5,7 +5,7 @@ import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import illustration from "images/signup-illustration.svg";
-import logo from "images/logo.svg";
+import logo from "images/mint.png";
 import { Link, useHistory } from 'react-router-dom';
 import googleIconImageSrc from "images/google-icon.png";
 import twitterIconImageSrc from "images/twitter-icon.png";
@@ -78,7 +78,7 @@ export default ({
   innerPages = components.innerPages,
   tosUrl = "#",
   privacyPolicyUrl = "#",
-  signInUrl =`/components/innerPages/LoginPage`,
+  signInUrl =`/signin`,
 }) => 
 {
   const [nameValue,setNameValue]=useState(false);
@@ -155,7 +155,7 @@ export default ({
 
                 <p tw="mt-8 text-sm text-gray-600 text-center">
                   Already have an account?{" "}
-                  <a href={`/sigin`} tw="border-b border-gray-500 border-dotted">
+                  <a href={`/signin`} tw="border-b border-gray-500 border-dotted">
                     Sign In
                   </a>
                 </p>

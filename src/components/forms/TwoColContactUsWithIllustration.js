@@ -33,7 +33,7 @@ const SubmitButton = tw(PrimaryButtonBase)`inline-block lg:ml-6 mt-6 lg:mt-0`
 export default ({
   subheading = "Contact Us",
   heading = <>Feel free to <span tw="text-primary-500">get in touch</span><wbr/> with us.</>,
-  description = "Not comfortable talking in person or through voice? Feel free to send us an anonymous email.",
+  description = "Want to stay in contact with us? Subscribe with your email for free to get our weekly newsletter!",
   submitButtonText = "Enroll Me",
   formAction = "#",
   formMethod = "get",

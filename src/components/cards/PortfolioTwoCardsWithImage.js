@@ -64,7 +64,7 @@ export default ({
     </>
   ),
   description = "We stay strong connections with more than twenty psychiatric consulting companies and hospitals in the world. The weekly meetings and monthly reviews keep both our colleagues and us up to date with the latest psychiatric researches in order to support everyone who needs us.",
-  linkText = "View all Projects",
+  linkText = "View all Meetings",
   cardLinkText = "Learn More",
   textOnLeft = false
 }) => {

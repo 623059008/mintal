@@ -10,7 +10,7 @@ import { LogoLink } from "components/headers/light.js";
 import { SectionHeading as HeadingBase } from "components/misc/Headings";
 import { SectionDescription as DescriptionBase } from "components/misc/Typography";
 
-import logo from "images/logo.svg";
+import logo from "images/mint.png";
 
 /* Hero */
 const Row = tw.div`flex`;

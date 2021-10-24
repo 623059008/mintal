@@ -18,9 +18,10 @@ import AgencyLandingPageImageSrc from "images/demo/AgencyLandingPage.jpeg";
 // import ServiceLandingPageImageSrc from "images/demo/ServiceLandingPage.jpeg";
 // import HostingCloudLandingPageImageSrc from "images/demo/HostingCloudLandingPage.jpeg";
 
-
+// import RecordPage from "page/Record.js";
 import LoginPage from "pages/Login.js";
 import SignupPage from "pages/Signup.js";
+import RecordPage from "pages/PrivacyPolicy.js";
 import QuizPage from "pages/Quiz";
 import NotFoundPage from 'pages/404';
 import PricingPage from "pages/Pricing.js";
@@ -50,7 +51,7 @@ import FullWidthWithImageHero from "components/hero/FullWidthWithImage.js";
 import TwoPlansWithDurationSwitcherPricing from "components/pricing/TwoPlansWithDurationSwitcher.js";
 import ThreePlansWithHalfPrimaryBackgroundPricing from "components/pricing/ThreePlansWithHalfPrimaryBackground.js";
 import ThreePlansPricing from "components/pricing/ThreePlans.js";
-import {createBatcher} from '_framer-motion@4.1.17@framer-motion';
+// import {createBatcher} from '_framer-motion@4.1.17@framer-motion';
 
 // import ThreeColWithSideImageFeatures from "components/features/ThreeColWithSideImage.js";
 // import TwoColWithButtonFeatures from "components/features/TwoColWithButton.js";
@@ -143,6 +144,12 @@ export const components = {
   },
 
   innerPages: {
+    // RecordPage: {
+    //   component: RecordPage,
+    //   imageSrc: LoginPageImageSrc,
+    //   scrollAnimationDisabled: true,
+    //   url: `/components/innerPages/RecordPage`,
+    // },
     LoginPage: {
       component: LoginPage,
       imageSrc: LoginPageImageSrc,
@@ -532,6 +539,12 @@ export const shortUrl = {
     imageSrc: SignupPageImageSrc,
     scrollAnimationDisabled: true,
   },
+  record: {
+    component: RecordPage,
+    url: `/RecordPage`,
+    imageSrc: SignupPageImageSrc,
+    scrollAnimationDisabled: true,
+  },
   quiz: {
     component: QuizPage,
     url: `/quizpage`,
@@ -581,6 +594,7 @@ export const shortUrl = {
 };
 export default () => {
   const { components } = useParams();
+  console.log('params:', components);
   try {
     let Component = shortUrl[components].component
       return <AnimationRevealPage disabled>
