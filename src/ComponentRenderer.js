@@ -583,9 +583,12 @@ export const shortUrl = {
 };
 export default () => {
   const { components } = useParams();
+  console.log('params:', components);
   try {
-      let Component = shortUrl[components].component;
-      return (<Component/>);
+    let Component = shortUrl[components].component
+      return <AnimationRevealPage disabled>
+          <Component/>
+        </AnimationRevealPage>
     }
     catch(e) {
       console.log('Error: Component Not Found', e);

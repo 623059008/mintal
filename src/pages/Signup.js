@@ -78,7 +78,7 @@ export default ({
   innerPages = components.innerPages,
   tosUrl = "#",
   privacyPolicyUrl = "#",
-  signInUrl =`/components/innerPages/LoginPage`,
+  signInUrl =`/signin`,
 }) => 
 {
   const [nameValue,setNameValue]=useState(false);
@@ -155,7 +155,7 @@ export default ({
 
                 <p tw="mt-8 text-sm text-gray-600 text-center">
                   Already have an account?{" "}
-                  <a href={`/LoginPage`} tw="border-b border-gray-500 border-dotted">
+                  <a href={`/signin`} tw="border-b border-gray-500 border-dotted">
                     Sign In
                   </a>
                 </p>

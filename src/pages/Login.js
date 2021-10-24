@@ -76,7 +76,7 @@ export default ({
   submitButtonText = "Sign In",
   SubmitButtonIcon = LoginIcon,
   forgotPasswordUrl = "#",
-  signupUrl = `/components/innerPages/SignupPage`,
+  signupUrl = `/signup`,
   goquiz=()=>{
     vis=1;
   }
