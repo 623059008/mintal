@@ -16,7 +16,7 @@ const StyledHeader = styled(Header)`
 //   sm:text-sm sm:mx-6
 // `;
 
-const Container = tw.div`relative -mx-8 -mt-8`;
+const Container = tw.div`relative -mx-8 -mt-4`;
 const TwoColumn = tw.div`flex flex-col lg:flex-row bg-gray-100`;
 const LeftColumn = tw.div`ml-8 mr-8 xl:pl-10 py-8`;
 const RightColumn = styled.div`
@@ -85,10 +85,9 @@ and sometimes you feel that reality is really powerless.",
   secondaryActionText = "Search Hotels"
 }) => {
   return (
-    <Container>
+    <Container style={{marginTop: '2em'}}>
       <TwoColumn>
         <LeftColumn>
-          {/* <StyledHeader links={navLinks} collapseBreakpointClass="sm" /> */}
           <Content>
             <Heading>{heading}</Heading>
             {finalResult == 1?

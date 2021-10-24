@@ -61,27 +61,52 @@ export default ({
   history  = useHistory(),
   signUpUrl = `/components/innerPages/SignUpPage`,
 }) => {
-
-  const navLinks = [
+  
+  const [realname, setRealname] = useState('');
+  const [uid, setUid] = useState(null);
+  const [navLinks, setNavLinks] = useState([
     <NavLinks key={1}>
-      <NavLink href="#">
-      <a href={signUpUrl}>Sign In</a>
-      </NavLink>
-      <NavLink href="#">
-        Register
-      </NavLink>
-      <NavLink href="#">
-        Contact
-      </NavLink>
-      <NavLink href="#"> 
-      </NavLink>
+      <NavLink href="/">Home</NavLink>
+      <NavLink href="/privacy">Privacy</NavLink>
+      <NavLink href="/donate">Donate</NavLink>
+      <NavLink href="/contact">Contact Us</NavLink>
     </NavLinks>,
     <NavLinks key={2}>
-      <PrimaryLink href="/#">
-        Donation
-      </PrimaryLink>
+      <PrimaryLink css={tw`rounded-full`} href="result">My Result</PrimaryLink>
     </NavLinks>
-  ];
+  ]);
+
+  useEffect(() => {
+    const fetchAdmin = async () => {
+      const uid = getCookie('userid');
+      if(!uid) {
+        history.push('/signin');
+        return;
+      }
+      const res = JSON.parse(await sendRequest('admin', { uid: uid }));
+      if(!res.success) {
+        history.push('/error');
+        return;
+      }
+      const {realname} = res;
+      setRealname(realname);
+      setUid(uid);
+      if (realname) {
+        setNavLinks([
+          <NavLinks key={1}>
+            <NavLink href="#">Home</NavLink>
+            <NavLink href="/privacy">Privacy</NavLink>
+            <NavLink href="/donate">Donate</NavLink>
+            <NavLink href="/contact">Contact Us</NavLink>
+            <NavLink>Welcome {realname}</NavLink>
+            <PrimaryLink css={tw`rounded-full`} href="result">My Result</PrimaryLink>
+          </NavLinks>
+        ]);
+      }
+    };
+    fetchAdmin();
+  }, []);
+
   const fetchLanding =() => {
     const uid = getCookie('userid');
     if(!uid) {
@@ -90,8 +115,6 @@ export default ({
     }else{
       history.push('/quiz');
     }
-
-   
   }
 
   return (

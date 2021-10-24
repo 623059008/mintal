@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "components/headers/light.js";
 import tw from "twin.macro"; //eslint-disable-line
 import { css } from "styled-components/macro"; //eslint-disable-line
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
@@ -13,7 +12,6 @@ import Footer from "components/footers/MiniCenteredFooter.js";
 
 export default () => (
   <AnimationRevealPage>
-    <Header/>
     <Hero />
     <MainFeature />
     <MainFeature2 />
