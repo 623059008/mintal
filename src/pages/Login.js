@@ -119,7 +119,25 @@ return(
           <MainContent>
             <Heading>{headingText}</Heading>
             <FormContainer>
-              <SocialButtonsContainer>
+              
+              <Input1 type="email" placeholder="Email" onChange={e=>setEmailValue(e.target.value)}/>
+                <Input1 type="Name" placeholder="Name" onChange={e=>setNameValue(e.target.value)}/>
+                <DIV>
+                <Input2 type="year" placeholder="Year"  onChange={e=>setYearValue(e.target.value)} />
+                <Input2 type="mon" style={{marginLeft: '1em', width: '20%'}} placeholder="Month"  onChange={e=>setMonthValue(e.target.value)}/>
+                <Input2 type="day" style={{marginLeft: '1em', width: '20%'}} placeholder="Day" onChange={e=>setDateValue(e.target.value)}/>
+                  </DIV>
+                  <SubmitButton onClick={submit}>
+               
+                  <SubmitButtonIcon className="icon" />
+                  <span className="text">{submitButtonText}</span>
+                </SubmitButton>
+
+                <DividerTextContainer>
+                  <DividerText><br />Or Sign in with third part</DividerText>
+                </DividerTextContainer>
+
+                <SocialButtonsContainer>
                 {socialButtons.map((socialButton, index) => (
                   <SocialButton key={index} href={socialButton.url}>
                     <span className="iconContainer">
@@ -129,22 +147,6 @@ return(
                   </SocialButton>
                 ))}
               </SocialButtonsContainer>
-              <DividerTextContainer>
-                <DividerText>Or Sign in with your e-mail</DividerText>
-              </DividerTextContainer>
-              
-              <Input1 type="email" placeholder="Email" onChange={e=>setEmailValue(e.target.value)}/>
-                <Input1 type="Name" placeholder="Name" onChange={e=>setNameValue(e.target.value)}/>
-                <DIV>
-                <Input2 type="year" placeholder="Year"  onChange={e=>setYearValue(e.target.value)} />
-                <Input2 type="mon" placeholder="Month"  onChange={e=>setMonthValue(e.target.value)}/>
-                <Input2 type="day" placeholder="Day" onChange={e=>setDateValue(e.target.value)}/>
-                  </DIV>
-                  <SubmitButton onClick={submit}>
-               
-                  <SubmitButtonIcon className="icon" />
-                  <span className="text">{submitButtonText}</span>
-                </SubmitButton>
               
               <p tw="mt-6 text-xs text-gray-600 text-center">
                 <a href={forgotPasswordUrl} tw="border-b border-gray-500 border-dotted">

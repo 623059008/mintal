@@ -19,11 +19,21 @@ const MainContainer = tw.div`lg:w-1/2 xl:w-5/12 p-6 sm:p-12`;
 Survey.StylesManager.applyTheme('modern');
 Survey.surveyStrings.loadingSurvey = "Please wait. Your survey is loading. . .";
 
+const Button = styled.button`
+  ${tw`mt-5 tracking-wide font-semibold bg-primary-500 text-gray-100 w-full py-4 rounded-lg hover:bg-primary-900 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none`}
+  .icon {
+    ${tw`w-6 h-6 -ml-2`}
+  }
+  .text {
+    ${tw`ml-3`}
+  }
+`;
+
 const SurveyComponent = () => {
   const history = useHistory();
   const [survey, setSurvey] = useState(null);
   const [quizData, setQuizData] = useState([]);
-  const [score, setScore] = useState(0);
+  const [score, setScore] = useState(-1);
   useEffect(() => {
     const fetchQuiz = async () => {
       const uid = getCookie('userid');
@@ -60,7 +70,7 @@ const SurveyComponent = () => {
           }
         ],
         completedHtml:
-          '<h4>You have completed this quiz. <b>{correctedAnswers}</b> questions from <b>{questionCount}</b>.</h4>'
+          '<h5>You have completed <br />this survey.</h5>'
       }
       data && data.forEach(item => {
         json.pages.push({
@@ -80,7 +90,6 @@ const SurveyComponent = () => {
       window.survey = new Survey.Model(json);
       setSurvey(window.survey);
       window.survey.onComplete.add(function(sender) {
-        console.log('quiz data: ', sender.data);
         const answerList =  JSON.parse(data[0]["choices"]);
         const answer = sender.data || [];
         const scoreList = []
@@ -101,7 +110,7 @@ const SurveyComponent = () => {
             history.push('/error');
             return;
           }
-          // history.push(`/result?score=${score}`);
+          
           setScore(score);
         }
         const sum = scoreList && scoreList.reduce((next, prev)=> next+prev) || 0;
@@ -117,6 +126,9 @@ const SurveyComponent = () => {
         <MainContainer>
             {(quizData.length>0 && survey) && <Survey.Survey model={survey} />}
             {(quizData.length === 0 || !survey) && <ReactLoading type="spin" color="#34d339" height={'20%'} width={'20%'} />}
+            {(quizData.length>0 && score>=0) && <Button onClick={()=>{
+              history.push(`/result?score=${score}`);
+            }}><span className="text">Check Result</span></Button>}
         </MainContainer>
       </Content>
     </Container>
