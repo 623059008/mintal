@@ -5,7 +5,7 @@ import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import illustration from "images/signup-illustration.svg";
-import logo from "images/logo.svg";
+import logo from "images/mint.png";
 import { Link, useHistory } from 'react-router-dom';
 import googleIconImageSrc from "images/google-icon.png";
 import twitterIconImageSrc from "images/twitter-icon.png";
@@ -102,7 +102,7 @@ export default ({
     setCookie('userid', inserId);
 
     setTimeout(()=>{
-      history.push(`/components/blocks/Pricing/TwoPlansWithDurationSwitcher`);
+      history.push(`/signin`);
     }, 500);
     // history.push(`/components/blocks/Pricing/TwoPlansWithDurationSwitcher`);
   };
