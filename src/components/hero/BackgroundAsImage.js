@@ -1,5 +1,6 @@
 import React from "react";
 import tw from "twin.macro";
+import { Link, useHistory } from 'react-router-dom';
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 
@@ -55,25 +56,31 @@ const StyledResponsiveVideoEmbed = styled(ResponsiveVideoEmbed)`
   }
 `;
 
-export default () => {
+export default ({  
+  vis,
+  history  = useHistory(),
+  signUpUrl = `/components/innerPages/SignUpPage`,
+  goquiz=()=>{
+    vis=1;
+  }}) => {
+
   const navLinks = [
     <NavLinks key={1}>
       <NavLink href="#">
-        About
+      <a href={signUpUrl}>Sign In</a>
       </NavLink>
       <NavLink href="#">
-        Blog
+        Register
       </NavLink>
       <NavLink href="#">
-        Locations
+        Contact
       </NavLink>
-      <NavLink href="#">
-        Pricing
+      <NavLink href="#"> 
       </NavLink>
     </NavLinks>,
     <NavLinks key={2}>
       <PrimaryLink href="/#">
-        Hire Us
+        Donation
       </PrimaryLink>
     </NavLinks>
   ];
