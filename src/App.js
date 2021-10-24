@@ -115,6 +115,9 @@ export default function App() {
   return (
     <Router>
       <Switch>
+        <Route path="/:components">
+          <ComponentRenderer />
+        </Route>
         <Route path="/components/:type/:subtype/:name">
           <ComponentRenderer />
         </Route>
