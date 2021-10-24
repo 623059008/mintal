@@ -76,7 +76,7 @@ export default ({
   submitButtonText = "Sign In",
   SubmitButtonIcon = LoginIcon,
   forgotPasswordUrl = "#",
-  signupUrl = `/signup`,
+  signupUrl = `/registry`,
   goquiz=()=>{
     vis=1;
   }
