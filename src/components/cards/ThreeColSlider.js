@@ -104,7 +104,7 @@ export default ({
     },
     {
       imageSrc: "https://thumbs.dreamstime.com/z/hispanic-doctor-smiling-23997913.jpg",
-      title: "Soho Paradise",
+      title: "Joseph Joestar",
       description: "Good friend with you, figure out your depression source",
       locationText: "Pittsburgh, PA",
       pricingText: "marriage target",
@@ -112,7 +112,7 @@ export default ({
     },
     {
       imageSrc: "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F35%2F2020%2F08%2F27%2Fwide-black-female-doctor-2000.jpg&w=1100&h=583&c=sc&poi=face&q=85",
-      title: "Hotel Baja",
+      title: "Melissa Brandy",
       description: "Be happiness with you and help you out of dpepression.",
       locationText: "Palo Alto, CA",
       pricingText: "target to all differents kinds of metal health",
