@@ -519,7 +519,7 @@ export const shortUrl = {
     imageSrc: AgencyLandingPageImageSrc,
     url: "/components/landingPages/AgencyLandingPage",
   },
-  login: {
+  signin: {
     component: LoginPage,
     imageSrc: LoginPageImageSrc,
     scrollAnimationDisabled: true,

@@ -102,7 +102,7 @@ const submit=async ()=>{
   setCookie('userid', id);
 
   setTimeout(()=>{
-    history.push(`/components/blocks/Pricing/TwoPlansWithDurationSwitcher`);
+    history.push(`/quiz`);
   }, 500);
 };
 

@@ -102,7 +102,7 @@ export default ({
     setCookie('userid', inserId);
 
     setTimeout(()=>{
-      history.push(`/components/blocks/Pricing/TwoPlansWithDurationSwitcher`);
+      history.push(`/signin`);
     }, 500);
     // history.push(`/components/blocks/Pricing/TwoPlansWithDurationSwitcher`);
   };
