@@ -21,6 +21,7 @@ import AgencyLandingPageImageSrc from "images/demo/AgencyLandingPage.jpeg";
 // import RecordPage from "page/Record.js";
 import LoginPage from "pages/Login.js";
 import SignupPage from "pages/Signup.js";
+import RecordPage from "pages/PrivacyPolicy.js";
 import QuizPage from "pages/Quiz";
 import NotFoundPage from 'pages/404';
 import PricingPage from "pages/Pricing.js";
@@ -538,6 +539,12 @@ export const shortUrl = {
     imageSrc: SignupPageImageSrc,
     scrollAnimationDisabled: true,
   },
+  record: {
+    component: RecordPage,
+    url: `/RecordPage`,
+    imageSrc: SignupPageImageSrc,
+    scrollAnimationDisabled: true,
+  },
   quiz: {
     component: QuizPage,
     url: `/quizpage`,
@@ -587,9 +594,12 @@ export const shortUrl = {
 };
 export default () => {
   const { components } = useParams();
+  console.log('params:', components);
   try {
-      let Component = shortUrl[components].component;
-      return (<Component/>);
+    let Component = shortUrl[components].component
+      return <AnimationRevealPage disabled>
+          <Component/>
+        </AnimationRevealPage>
     }
     catch(e) {
       let Component = shortUrl["404"].component;

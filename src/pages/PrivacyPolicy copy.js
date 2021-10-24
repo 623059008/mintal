@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import tw from "twin.macro";
-import Header from "components/headers/light.js";
 import styled from "styled-components";
 import { Line } from '@antv/g2plot';
 import { SectionHeading, Subheading as SubheadingBase } from "components/misc/Headings.js";
@@ -116,7 +115,6 @@ export default ({
 
   return (
     <Container>
-      <Header/>
       <ContentWithPaddingXl>
         <HeaderContainer>
           {subheading && <Subheading>{subheading}</Subheading>}

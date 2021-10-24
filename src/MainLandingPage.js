@@ -137,7 +137,7 @@ export default ({
           <NavRow>
             <LogoLink href="/">
               <img src={logo} alt="" />
-              Treact
+              Mintal
             </LogoLink>
             <div tw="flex flex-wrap justify-center lg:justify-end items-center -mr-12">
               <NavLink target="_blank" href="https://owaiskhan.me/post/free-tailwindcss-react-ui-kit">
