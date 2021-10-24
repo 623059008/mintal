@@ -21,7 +21,7 @@ import AgencyLandingPageImageSrc from "images/demo/AgencyLandingPage.jpeg";
 // import RecordPage from "page/Record.js";
 import LoginPage from "pages/Login.js";
 import SignupPage from "pages/Signup.js";
-import RecordPage from "pages/PrivacyPolicy.js";
+import RecordPage from "pages/Record";
 import QuizPage from "pages/Quiz";
 import NotFoundPage from 'pages/404';
 import PricingPage from "pages/Pricing.js";

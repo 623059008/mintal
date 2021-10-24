@@ -41,7 +41,7 @@ const SurveyComponent = () => {
         history.push('/signin');
         return;
       }
-      const res = JSON.parse(await sendRequest('quiz', { uid: uid, count: 3 }))
+      const res = JSON.parse(await sendRequest('quiz', { uid: uid, count: 10 }))
       if(!res.success) {
         history.push('/error');
         return;
