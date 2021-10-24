@@ -1,5 +1,5 @@
 const sendRequest = async (url, data) => {
-    const baseUrl = 'http://192.168.0.25:7001/'
+    const baseUrl = 'http://3.88.213.161:7001/'
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 

@@ -77,8 +77,8 @@ export default ({ roundedHeaderButton = false, logoLink, links, className, colla
           <NavLinks key={1}>
             <NavLink href="/">Home</NavLink>
             <NavLink href="/quiz">Test</NavLink>
-            <NavLink href="/sigin" tw="lg:ml-12!">Login</NavLink>
-            <PrimaryLink css={roundedHeaderButton && tw`rounded-full`} href="/registry">Registry</PrimaryLink>
+            <NavLink href="/signin" tw="lg:ml-12!">Login</NavLink>
+            <PrimaryLink css={roundedHeaderButton && tw`rounded-full`} href="/registry">Register</PrimaryLink>
           </NavLinks>
         ]);
   const history = useHistory();
