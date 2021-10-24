@@ -20,7 +20,7 @@ const Container = tw.div`relative -mx-8 -mt-4`;
 const TwoColumn = tw.div`flex flex-col lg:flex-row bg-gray-100`;
 const LeftColumn = tw.div`ml-8 mr-8 xl:pl-10 py-8`;
 const RightColumn = styled.div`
-  background-image: url("http://p9.itc.cn/images01/20201215/f02e715699dc430d9b7591f9aba88305.jpeg");
+  background-image: url("https://images.unsplash.com/photo-1569437061241-a848be43cc82?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80");
   ${tw`bg-green-500 bg-cover bg-center xl:ml-24 h-96 lg:h-auto lg:w-1/2 lg:flex-1`}
 `;
 
@@ -42,7 +42,7 @@ const Actions = styled.div`
 `;
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-const result = urlParams.get('result')
+const result = urlParams.get('score')
 let finalResult = 0
 if (result < 30) {
   finalResult = 1
