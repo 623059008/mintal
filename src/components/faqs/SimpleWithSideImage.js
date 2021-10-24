@@ -52,24 +52,24 @@ export default ({
    */
   const defaultFaqs = [
     {
-      question: "Is lunch provided free of cost ?",
+      question: "Is therapy provided free of cost ?",
       answer:
-        "Yes, it is, if you have a membership with us. Otherwise it is charged as per the menu. Some limits do apply as to how much items can be included in your lunch. This limit is enough for any one person and merely exists to discourage abusal of the system."
+        "Yes, it is, if you have a membership with us. Otherwise it is charged as per the plan. Some limits do apply as to how many approach can be included in your visit. This limit is enough for any one person and merely exists to discourage abusal of the system."
     },
     {
-      question: "Do you have 2 Bedroom suites ?",
+      question: "Can I change to another Doctor ?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        "Sure, you can. We will help you to transfer your past record to the new Doctor in order to miss any essential data of you."
     },
     {
-      question: "Are Wi-Fi costs included in the price ?",
+      question: "How to ensure my privacy ?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        "Our goal is to provide a better mintal life to everyone, in other words, we will not share your personal information and important data with anyone else except for your choosed Doctor"
     },
     {
       question: "Where can I reach you for support ?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        "PLease refer to the top right and click on Contact US."
     }
   ];
 
