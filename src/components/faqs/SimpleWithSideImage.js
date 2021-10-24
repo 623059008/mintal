@@ -69,7 +69,7 @@ export default ({
     {
       question: "Where can I reach you for support ?",
       answer:
-        "PLease refer to the top right and click on Contact U."
+        "Please refer to the top right and click on Contact Us."
     }
   ];
 

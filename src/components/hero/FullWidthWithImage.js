@@ -89,10 +89,6 @@ and sometimes you feel that reality is really powerless.",
   description7 = "You may currently be in a moderate state of depression. In the near future, you may be prone to feeling sad, upset, or somewhat inexplicably anxious. You can only feel happy when something really exciting and happy happens, but this happiness lasts much shorter than before.",
   description8 = "Things that used to be fun and colorful seem to have faded lately. You have some difficulty in getting up and doing things. If you get criticized or have a little trouble at work or school. If you get criticized or have a little trouble at work or school, you are more likely to doubt yourself, and sometimes you feel really powerless in reality.",
   description9 = "Physically. Physically, you may experience loss of appetite, easy fatigue, insomnia, etc. Some people show a great increase in appetite and sleepiness. Whichever physical reaction is different from usual - it may indicate that your current state is a cause for concern.",
-  primaryActionUrl = "",
-  primaryActionText = "Sign Up",
-  secondaryActionUrl = "#",
-  secondaryActionText = "Search Hotels"
 }) => {
   return (
     <Container style={{ marginTop: '2em' }}>
@@ -121,14 +117,6 @@ and sometimes you feel that reality is really powerless.",
             <Paragraph>{description6}
             </Paragraph>:
             <Paragraph>{description9}</Paragraph>)}
-            <Actions>
-              <a href="action primaryAction">
-                {primaryActionText}
-              </a >
-              <a href={secondaryActionUrl} className="action secondaryAction">
-                {secondaryActionText}
-              </a >
-            </Actions>
           </Content>
         </LeftColumn>
         <RightColumn></RightColumn>

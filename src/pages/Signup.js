@@ -59,7 +59,7 @@ const IllustrationImage = styled.div`
 export default ({
   logoLinkUrl = "#",
   illustrationImageSrc = illustration,
-  headingText = "Registry For Mintal",
+  headingText = "Register Mintal",
   socialButtons = [
     {
       iconImageSrc: googleIconImageSrc,
@@ -73,7 +73,7 @@ export default ({
     }
   ],
   history = useHistory(),
-  submitButtonText = "Registry",
+  submitButtonText = "Register",
   SubmitButtonIcon = SignUpIcon,
   innerPages = components.innerPages,
   tosUrl = "#",
@@ -127,10 +127,10 @@ export default ({
                   </DIV>
                 <SubmitButton onClick={submit}>
                   <SubmitButtonIcon className="icon" />
-                  <span className="text">Registry</span>
+                  <span className="text">Register</span>
                 </SubmitButton>
               <DividerTextContainer>
-                <DividerText> <br />Or registry with third part</DividerText>
+                <DividerText> <br />Or Register with third part</DividerText>
               </DividerTextContainer>
              <SocialButtonsContainer>
                 {socialButtons.map((socialButton, index) => (
