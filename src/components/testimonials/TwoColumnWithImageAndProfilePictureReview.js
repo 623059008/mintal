@@ -79,7 +79,7 @@ export default ({
   const defaultTestimonials = [
     {
       imageSrc:
-        ""http://pic.616pic.com/bg_w1180/00/05/97/I8tw7HPpqY.jpg!/fw/1120",",
+        "http://pic.616pic.com/bg_w1180/00/05/97/I8tw7HPpqY.jpg!/fw/1120",
       profileImageSrc:
         "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3.25&w=512&h=512&q=80",
       quote:
