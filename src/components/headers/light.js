@@ -76,9 +76,7 @@ export default ({ roundedHeaderButton = false, logoLink, links, className, colla
   const [defaultLinks, setDefaultLinks] = useState([
           <NavLinks key={1}>
             <NavLink href="/">Home</NavLink>
-            <NavLink href="/privacy">Privacy</NavLink>
-            <NavLink href="/donate">Donate</NavLink>
-            <NavLink href="/contact">Contact Us</NavLink>
+            <NavLink href="/contact">Test</NavLink>
             <NavLink href="/sigin" tw="lg:ml-12!">Login</NavLink>
             <PrimaryLink css={roundedHeaderButton && tw`rounded-full`} href="/registry">Registry</PrimaryLink>
           </NavLinks>
@@ -114,9 +112,7 @@ export default ({ roundedHeaderButton = false, logoLink, links, className, colla
         setDefaultLinks([
           <NavLinks key={1}>
             <NavLink href="/">Home</NavLink>
-            <NavLink href="/privacy">Privacy</NavLink>
-            <NavLink href="/donate">Donate</NavLink>
-            <NavLink href="/contact">Contact Us</NavLink>
+            <NavLink href="/contact">Test</NavLink>
             <NavLink>Welcome {realname}</NavLink>
             <PrimaryLink css={roundedHeaderButton && tw`rounded-full`} href="result">My Result</PrimaryLink>
           </NavLinks>

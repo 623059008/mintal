@@ -102,7 +102,7 @@ const submit=async ()=>{
   setCookie('userid', id);
 
   setTimeout(()=>{
-    history.push(`/quiz`);
+    history.push(`/`);
   }, 500);
 };
 
