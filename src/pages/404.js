@@ -6,6 +6,7 @@ import "./404.css";
 
 const NotFoundComponent = () => {
     return (<Container>
+        <div style={{marginTop: "1em"}}>
         <Header />
         <div class="content-block">
                 <img src={image404src} class="image" alt="woman meditating" />
@@ -16,6 +17,7 @@ const NotFoundComponent = () => {
                         This is a 404 error, which means you've clicked on a bad link or entered an invalid URL.
                 </p>
             </div>
+        </div>
         </div>
         </Container>);
     return (

@@ -67,9 +67,7 @@ export default ({
   const [navLinks, setNavLinks] = useState([
     <NavLinks key={1}>
       <NavLink href="/">Home</NavLink>
-      <NavLink href="/privacy">Privacy</NavLink>
-      <NavLink href="/donate">Donate</NavLink>
-      <NavLink href="/contact">Contact Us</NavLink>
+      <NavLink href="/quiz">Test</NavLink>
     </NavLinks>,
     <NavLinks key={2}>
       <PrimaryLink css={tw`rounded-full`} href="result">My Result</PrimaryLink>
@@ -95,9 +93,7 @@ export default ({
         setNavLinks([
           <NavLinks key={1}>
             <NavLink href="#">Home</NavLink>
-            <NavLink href="/privacy">Privacy</NavLink>
-            <NavLink href="/donate">Donate</NavLink>
-            <NavLink href="/contact">Contact Us</NavLink>
+            <NavLink href="/quiz">Test</NavLink>
             <NavLink>Welcome {realname}</NavLink>
             <PrimaryLink css={tw`rounded-full`} href="result">My Result</PrimaryLink>
           </NavLinks>
