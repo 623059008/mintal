@@ -117,7 +117,8 @@ export default ({ roundedHeaderButton = false, logoLink, links, className, colla
             <NavLink href="/privacy">Privacy</NavLink>
             <NavLink href="/donate">Donate</NavLink>
             <NavLink href="/contact">Contact Us</NavLink>
-            <PrimaryLink css={roundedHeaderButton && tw`rounded-full`}>Welcome {realname}</PrimaryLink>
+            <NavLink>Welcome {realname}</NavLink>
+            <PrimaryLink css={roundedHeaderButton && tw`rounded-full`} href="result">My Result</PrimaryLink>
           </NavLinks>
         ]);
       }

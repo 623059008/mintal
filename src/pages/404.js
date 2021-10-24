@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import image404src from "../images/404image.png";
+import Header from "components/headers/light.js";
 import "./404.css";
 
 const NotFoundComponent = () => {
     return (
     <div class="container">
+        <Header/>
     <div class="content-block">
         <img src={image404src} class="image" alt="woman meditating" />
         <div class="headline-wrapper">
